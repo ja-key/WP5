@@ -1,4 +1,5 @@
 for i in range(5):
     print('yes')
 
-egg = 1234
+egg = 12
+print(egg)
