@@ -1,1 +1,1 @@
-rtg_mass = 1
+rtg_mass = 2
