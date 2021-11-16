@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="496207aa-fd2d-4897-a8b1-b1498b95d353" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bearing check.py" afterDir="false" />
+    <list default="true" id="496207aa-fd2d-4897-a8b1-b1498b95d353" name="Default Changelist" comment="changed variables and added code to the bearing check">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastener spacing.py" beforeDir="false" afterPath="$PROJECT_DIR$/fastener spacing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bearing check.py" beforeDir="false" afterPath="$PROJECT_DIR$/bearing check.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +60,14 @@
       <option name="presentableId" value="Default" />
       <updated>1636473358896</updated>
     </task>
+    <task id="LOCAL-00001" summary="changed variables and added code to the bearing check">
+      <created>1637071835082</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1637071835082</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -73,6 +80,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changed variables and added code to the bearing check" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed variables and added code to the bearing check" />
   </component>
   <component name="WindowStateProjectService">
     <state x="203" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1636473920480">
