@@ -1,3 +1,6 @@
 # WP4
+to update local version:
+fetch -> pull
 
-Atom + ide-python + teletype lets us do real time collaboration.
+to push you changes to the cloud:
+stage changes -> commit + comment -> push
