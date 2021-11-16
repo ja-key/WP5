@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="496207aa-fd2d-4897-a8b1-b1498b95d353" name="Default Changelist" comment="finished wp 4.6">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bearing check.py" beforeDir="false" afterPath="$PROJECT_DIR$/bearing check.py" afterDir="false" />
-    </list>
+    <list default="true" id="496207aa-fd2d-4897-a8b1-b1498b95d353" name="Default Changelist" comment="added comments" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +71,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637074265824</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added comments">
+      <created>1637075580042</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1637075580042</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -91,12 +95,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changed variables and added code to the bearing check" />
     <MESSAGE value="finished wp 4.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished wp 4.6" />
+    <MESSAGE value="added comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments" />
   </component>
   <component name="WindowStateProjectService">
     <state x="203" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1636473920480">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="203" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1636473920480" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1637075283398">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637075283398" />
   </component>
 </project>
