@@ -59,9 +59,9 @@ ftus = np.array([540, 620, 483, 469, 483, 572])*(10**6)
 rhos = np.array([7850, 7850, 2800, 2780, 2780, 2810])
 
 Pmax = 1.5 * F_y / 8
-dlist1 = []
-dlist2 = []
-dlist4 = []
+dlist1 = [100000]
+dlist2 = [100000]
+dlist4 = [100000]
 mlist = [10e6]
 deltaP = 0
 bestindex = 0
@@ -125,6 +125,7 @@ bestwd = 0
 bestt = 0
 bestmaterial = 0
 bestp = 0
+
 ## Curve 2
 for i in [2, 5]:
     for width in widths:
@@ -144,6 +145,7 @@ for i in [2, 5]:
 
 print("Curve 2:", bestwidth, bestwd, bestt,
       bestmaterial, bestindex, len(dlist2))
+
 deltaP = 0
 bestindex = 0
 bestwidth = 0
@@ -151,6 +153,7 @@ bestwd = 0
 bestt = 0
 bestmaterial = 0
 bestp = 0
+
 ## Curve 4
 for i in [3, 4]:
     for width in widths:
@@ -162,6 +165,7 @@ for i in [3, 4]:
                 sigma_bending = F_y/8*(f+width/WD*0.5)*6/(width*t*t)
                 if len(dlist4[:-1]) > 0:
                     if deltaP <= min(dlist4[:-1]) and sigma_bending < ftus[i]:
+                        print('yes')
                         bestindex = len(dlist4)-1
                         bestwidth = width
                         bestwd = WD
@@ -170,3 +174,4 @@ for i in [3, 4]:
 
 print("Curve 4:", bestwidth, bestwd, bestt,
       bestmaterial, bestindex, len(dlist4))
+print(dlist4)
