@@ -20,10 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="496207aa-fd2d-4897-a8b1-b1498b95d353" name="Default Changelist" comment="added comments">
+      <change afterPath="$PROJECT_DIR$/4.8 revenge.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4.NEIN.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/WP4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WP4.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bearing check.py" beforeDir="false" afterPath="$PROJECT_DIR$/bearing check.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +49,59 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/bearing check.py" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Delft/BSc2/Q2/Project/THIS HELLHOLE" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mattia Scaglioni\Documents\Delft\BSc2\Q2\Project\THIS HELLHOLE" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.4.NEIN">
+    <configuration name="4.8 revenge" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="WP4" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\twan.000\AppData\Local\Programs\Python\Python38-32\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/4.8 revenge.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="4.NEIN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="WP4" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\twan.000\AppData\Local\Programs\Python\Python38-32\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/4.NEIN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="WP4" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -63,6 +114,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bearing check.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -84,6 +136,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bearing check.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -93,8 +146,14 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.4.NEIN" />
+        <item itemvalue="Python.4.8 revenge" />
+      </list>
+    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -105,6 +164,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636473358896</updated>
+      <workItem from="1637240229149" duration="7176000" />
     </task>
     <task id="LOCAL-00001" summary="changed variables and added code to the bearing check">
       <created>1637071835082</created>
@@ -137,6 +197,9 @@
     <option name="localTasksCounter" value="5" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -147,6 +210,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changed variables and added code to the bearing check" />
@@ -154,38 +218,8 @@
     <MESSAGE value="added comments" />
     <option name="LAST_COMMIT_MESSAGE" value="added comments" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="399" y="233" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637076475274">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="399" y="233" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637076475274" />
-    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1637076473428">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637076473428" />
-    <state width="1899" height="285" key="GridCell.Tab.0.bottom" timestamp="1637079008227">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1899" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637079008227" />
-    <state width="1899" height="285" key="GridCell.Tab.0.center" timestamp="1637079008227">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1899" height="285" key="GridCell.Tab.0.center/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637079008227" />
-    <state width="1899" height="285" key="GridCell.Tab.0.left" timestamp="1637079008227">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1899" height="285" key="GridCell.Tab.0.left/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637079008227" />
-    <state width="1899" height="285" key="GridCell.Tab.0.right" timestamp="1637079008227">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1899" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637079008227" />
-    <state x="203" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1636473920480">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="203" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1636473920480" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1637075283398">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637075283398" />
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/4_8_pull_through_py$4_8_revenge.coverage" NAME="4.8 revenge Coverage Results" MODIFIED="1637245705190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4_8_pull_through_py$4_NEIN.coverage" NAME="4.NEIN Coverage Results" MODIFIED="1637245713567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
