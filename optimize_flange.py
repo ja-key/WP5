@@ -1,5 +1,5 @@
-from math import pi, sqrt, sin, cos, tan
-import matplotlib.pyplot as plt
+from math import pi
+# import matplotlib.pyplot as plt
 import numpy as np
 
 #input forces
@@ -50,21 +50,108 @@ def get_mass(w, d, t, rho):
 
 
 # possibilities for variables:
-widths = np.arange(1, 20, 0.1)*0.001
-WDs = np.arange(1.1, 5.01, 0.01)
-ts = np.arange(0.0005, 0.005, 0.0001)
+widths = np.arange(1, 20, 0.5)*0.001
+WDs = np.arange(1.1, 5.01, 0.25)
+ts = np.arange(0.0001, 0.005, 0.0005)
 
 # materials: 4130 steel, 8630 steel, 2014-t6,2024-t4, 2024-t3, 7075-t6
 ftus = np.array([540, 620, 483, 469, 483, 572])*(10**6)
 rhos = np.array([7850, 7850, 2800, 2780, 2780, 2810])
 
-Pmax = 1.5 * F_y
-
-for i in range(len(materials)):  # iterate materials
+Pmax = 1.5 * F_y / 8
+dlist1 = []
+dlist2 = []
+dlist4 = []
+mlist = [10e6]
+deltaP = 0
+bestindex = 0
+bestwidth = 0
+bestwd = 0
+bestt = 0
+bestmaterial = 0
+bestp = 0
+'''
+for i in range(np.size(ftus)):  # iterate materials
     for width in widths:
         for WD in WDs:
             for t in ts:
-                if i == 0:
-                    P_u = ftus[i]*(width*(1-1/WD)*t)*curve1
+                if i == 0 or i == 1:
+                    P_u = ftus[i]*(width*(1-1/WD)*t)*curve1(WD)
                     mass = get_mass(width, width/WD, t, rhos[i])
-                elif i == 1:
+                elif i == 2 or i == 5:
+                    P_u = ftus[i]*(width*(1-1/WD)*t)*curve2(WD)
+                    mass = get_mass(width, width/WD, t, rhos[i])
+                elif i == 3 or i == 4:
+                    P_u = ftus[i]*(width*(1-1/WD)*t)*curve4(WD)
+                    mass = get_mass(width, width/WD, t, rhos[i])
+
+                deltaP = abs(Pmax - P_u)
+                dlist.append(deltaP)
+                #print(mass)
+                mlist.append(mass)
+                if len(dlist[:-1]) > 0 and len(mlist[:-1]) > 0:
+                    if deltaP <= min(dlist[:-1]):
+                        bestindex = len(dlist)-1
+                        bestwidth = width
+                        bestwd = WD
+                        bestt = t
+                        bestmaterial = i
+'''
+
+## Curve 1
+for i in range(2):
+    for width in widths:
+        for WD in WDs:
+            for t in ts:
+                P_u = ftus[i]*(width*(1-1/WD)*t)*curve1(WD)
+                deltaP = abs(Pmax - P_u)
+                dlist1.append(deltaP)
+                if len(dlist1[:-1]) > 0:
+                    if deltaP <= min(dlist1[:-1]):
+                        bestindex = len(dlist1)-1
+                        bestwidth = width
+                        bestwd = WD
+                        bestt = t
+                        bestmaterial = i
+                        bestp = P_u
+
+print("Curve 1:", bestwidth, bestwd, bestt,
+      bestmaterial, bestindex, len(dlist1))
+
+## Curve 2
+for i in [2, 5]:
+    for width in widths:
+        for WD in WDs:
+            for t in ts:
+                P_u = ftus[i]*(width*(1-1/WD)*t)*curve2(WD)
+                deltaP = abs(Pmax - P_u)
+                dlist2.append(deltaP)
+                if len(dlist2[:-1]) > 0:
+                    if deltaP <= min(dlist2[:-1]):
+                        bestindex = len(dlist2)-1
+                        bestwidth = width
+                        bestwd = WD
+                        bestt = t
+                        bestmaterial = i
+
+print("Curve 2:", bestwidth, bestwd, bestt,
+      bestmaterial, bestindex, len(dlist2))
+
+## Curve 4
+for i in [3, 4]:
+    for width in widths:
+        for WD in WDs:
+            for t in ts:
+                P_u = ftus[i]*(width*(1-1/WD)*t)*curve4(WD)
+                deltaP = abs(Pmax - P_u)
+                dlist4.append(deltaP)
+                if len(dlist4[:-1]) > 0:
+                    if deltaP <= min(dlist4[:-1]):
+                        bestindex = len(dlist4)-1
+                        bestwidth = width
+                        bestwd = WD
+                        bestt = t
+                        bestmaterial = i
+
+print("Curve 4:", bestwidth, bestwd, bestt,
+      bestmaterial, bestindex, len(dlist4))
