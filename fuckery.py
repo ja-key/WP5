@@ -47,10 +47,9 @@ def get_mass(w, d, t, rho):
 widths = np.arange(1, 20, 0.1)*0.001
 WDs = np.arange(1.1,5.01,0.01)
 ts = np.arange(0.0005, 0.005, 0.0001)
-Ftu = (10**6)*483
 
 # materials: 2014-t6,2024-t4, 2024-t3, 7075-t6
-materials = np.array([483, 469, 483, 572])*(10**6)
+ftus = np.array([483, 469, 483, 572])*(10**6)
 rhos = np.array([2800, 2780, 2780, 2810])
 
 Pmax = F_y
@@ -60,6 +59,6 @@ for i in range(len(materials)): # iterate materials
         for WD in WDs:
             for t in ts:
                 if i == 0:
-                    P_u = materials[i]*(width*(1-1/WD)*t)*curve1
+                    P_u = ftus[i]*(width*(1-1/WD)*t)*curve1
                     mass = get_mass(width, width/WD, t, rhos[i])
                 elif i == 1:
