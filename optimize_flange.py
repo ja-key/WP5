@@ -44,7 +44,8 @@ def curve7(WD):
 
 def get_mass(w, d, t, rho):
     f = 0.006  # distance plate-hole
-    flange_mass = ((f+d/2)*w+0.5*pi*w*w*0.25-pi*d*d*0.25) * rho  # rectangle + half circle - hole
+    flange_mass = ((f+d/2)*w+0.5*pi*w*w*0.25-pi*d*d*0.25) * rho
+    # rectangle + half circle - hole
     return flange_mass
 
 
@@ -53,11 +54,11 @@ widths = np.arange(1, 20, 0.1)*0.001
 WDs = np.arange(1.1, 5.01, 0.01)
 ts = np.arange(0.0005, 0.005, 0.0001)
 
-# materials: 2014-t6,2024-t4, 2024-t3, 7075-t6
-ftus = np.array([483, 469, 483, 572])*(10**6)
-rhos = np.array([2800, 2780, 2780, 2810])
+# materials: 4130 steel, 8630 steel, 2014-t6,2024-t4, 2024-t3, 7075-t6
+ftus = np.array([540, 620, 483, 469, 483, 572])*(10**6)
+rhos = np.array([7850, 7850, 2800, 2780, 2780, 2810])
 
-Pmax = F_y
+Pmax = 1.5 * F_y
 
 for i in range(len(materials)):  # iterate materials
     for width in widths:
