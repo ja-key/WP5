@@ -1,5 +1,7 @@
 import numpy as np
 from math import sqrt
+
+F_tot = []  # list of the total applied force on each fastener
 def bearing_check(Fx, Fz, n_f, location, x_avg, z_avg, x_pos, z_pos): #Fx is the applied force in the x direction, Fz is the applied force in the z direction, location is the location of the applied force with respect to the coordinate system input is an list of the form [x, z]
     F_ipx = Fx/n_f      #Force applied on the fasteners positive upward
     F_ipz = Fz/n_f      #Force applied on the fasteners positive upward
@@ -8,7 +10,7 @@ def bearing_check(Fx, Fz, n_f, location, x_avg, z_avg, x_pos, z_pos): #Fx is the
     z_pos = z_pos - z_avg  #changing the origin to the cg of the fasteners
     pos_lst = []  #list of positions in radial coordinates from the cg of the fasteners
     F_lst = []      #list of x and z components of the forces on each of the fasteners
-    F_tot = []      #list of the total applied force on each fastener
+
     r_lst = []
     rot = np.array([[0, -1], [1, 0]])     #counter clockwise rotational matrix
     for i in x_pos:
@@ -34,3 +36,15 @@ test = 3106.75, 1035.58, 20, (250, 250), 250, 260, (50, 150, 250, 350, 450), (16
 x_pos = np.array([50, 150, 250, 350, 450])
 z_pos = np.array([160, 210, 310, 360])
 print(bearing_check(1035.58, 3106.75, 20, (250, 250), 250, 260, x_pos, z_pos))
+
+def FailureTest(MaxBearingStress, t, D_2, ):
+    TFail = []
+    for i in F_tot:
+        BearingStress = F_tot[0] / (D_2*t)
+        if MaxBearingStress > BearingStress:
+            TFail.append(0)
+        else:
+            TFail.append(1)
+    return(TFail)
+
+print(FailureTest(800,3,5))
