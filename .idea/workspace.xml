@@ -165,7 +165,9 @@
       <workItem from="1637621871665" duration="217000" />
       <workItem from="1637622109442" duration="97000" />
       <workItem from="1637672487223" duration="496000" />
-      <workItem from="1637673030355" duration="104000" />
+      <workItem from="1637673030355" duration="704000" />
+      <workItem from="1637674189493" duration="23000" />
+      <workItem from="1637674231798" duration="294000" />
     </task>
     <task id="LOCAL-00001" summary="changed variables and added code to the bearing check">
       <created>1637071835082</created>
@@ -220,7 +222,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="added comments" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/bearing_check_py$bearing_check.coverage" NAME="bearing check Coverage Results" MODIFIED="1637672960925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bearing_check_py$bearing_check.coverage" NAME="bearing check Coverage Results" MODIFIED="1637674488190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4_8_pull_through_py$4_8_revenge.coverage" NAME="4.8 revenge Coverage Results" MODIFIED="1637245705190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4_8_pull_through_py$4_NEIN.coverage" NAME="4.NEIN Coverage Results" MODIFIED="1637245713567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
