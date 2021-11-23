@@ -49,9 +49,9 @@ def get_mass(w, d, t, rho):
 
 
 # possibilities for variables:
-widths = np.arange(1, 20, 0.5)*0.001
-WDs = np.arange(1.1, 5.01, 0.25)
-ts = np.arange(0.0001, 0.005, 0.0005)
+widths = np.arange(1, 20, 0.25)*0.001
+WDs = np.arange(1.2, 5.01, 0.2)
+ts = np.arange(0.005, 0.0001, -0.0005)
 f = 0.006  # distance plate-hole
 
 # materials: 4130 steel, 8630 steel, 2014-t6, 2024-t4, 2024-t3, 7075-t6
@@ -62,7 +62,7 @@ Pmax = 1.5 * F_y / 8
 dlist1 = [100000]
 dlist2 = [100000]
 dlist4 = [100000]
-mlist = [10e6]
+mlist = [1000.0]
 deltaP = 0
 bestindex = 0
 bestwidth = 0
@@ -100,21 +100,27 @@ for i in range(np.size(ftus)):  # iterate materials
 
 ## Curve 1
 for i in range(2):
-    for width in widths:
+    for t in ts:
         for WD in WDs:
-            for t in ts:
+            for width in widths:
                 P_u = ftus[i]*(width*(1-1/WD)*t)*curve1(WD)
-                deltaP = abs(Pmax - P_u)
-                dlist1.append(deltaP)
+                mass = get_mass(width, width/WD, t, rhos[i])
                 sigma_bending = F_y/8*(f+width/WD*0.5)*6/(width*t*t)
-                if len(dlist1[:-1]) > 0:
-                    if deltaP <= min(dlist1[:-1]) and sigma_bending < ftus[i]:
-                        bestindex = len(dlist1)-1
-                        bestwidth = width
-                        bestwd = WD
-                        bestt = t
-                        bestmaterial = i
-                        bestp = P_u
+                if P_u > Pmax:
+                    #print('pu')
+                    if sigma_bending < ftus[i]:
+                        #print('sigma')
+                        #print(min(mlist))
+                        if mass < min(mlist):
+                            mlist.append(mass)
+                            print('mass')
+                            bestindex = len(dlist1)-1
+                            bestwidth = width
+                            bestwd = WD
+                            bestt = t
+                            bestmaterial = i
+                            bestp = P_u
+
 
 print("Curve 1:", bestwidth, bestwd, bestt,
       bestmaterial, bestindex, len(dlist1))
@@ -132,10 +138,10 @@ for i in [2, 5]:
         for WD in WDs:
             for t in ts:
                 P_u = ftus[i]*(width*(1-1/WD)*t)*curve2(WD)
-                deltaP = abs(Pmax - P_u)
+                deltaP = Pmax - P_u
                 dlist2.append(deltaP)
                 sigma_bending = F_y/8*(f+width/WD*0.5)*6/(width*t*t)
-                if len(dlist2[:-1]) > 0:
+                if len(dlist2[:-1]) > 0 and deltaP >= 0:
                     if deltaP <= min(dlist2[:-1]) and sigma_bending < ftus[i]:
                         bestindex = len(dlist2)-1
                         bestwidth = width
@@ -160,11 +166,11 @@ for i in [3, 4]:
         for WD in WDs:
             for t in ts:
                 P_u = ftus[i]*(width*(1-1/WD)*t)*curve4(WD)
-                deltaP = abs(Pmax - P_u)
+                deltaP = Pmax - P_u
                 dlist4.append(deltaP)
                 sigma_bending = F_y/8*(f+width/WD*0.5)*6/(width*t*t)
-                if len(dlist4[:-1]) > 0:
-                    if deltaP <= min(dlist4[:-1]) and sigma_bending < ftus[i]:
+                if len(dlist4[:-1]) > 0 and deltaP >= 0:
+                    if deltaP <= min(dlist4[:-1]) and sigma_bending < 0.9*ftus[i]:
                         print('yes')
                         bestindex = len(dlist4)-1
                         bestwidth = width
@@ -174,4 +180,3 @@ for i in [3, 4]:
 
 print("Curve 4:", bestwidth, bestwd, bestt,
       bestmaterial, bestindex, len(dlist4))
-print(dlist4)
