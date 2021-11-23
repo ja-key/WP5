@@ -49,8 +49,8 @@ def curve60(eD):
 
 
 #input forces
-F_z = 3106.75  # [N] in direction of flight (axial)
-F_y = 1035.58  # [N] in lateral direction (assumed out of s/c)
+F_z = 1852.32  # [N] in direction of flight (axial)
+F_y = 3208.31  # [N] in lateral direction (assumed out of s/c)
 
 # materials: 4130 steel, 8630 steel, 2014-t6, 2024-t4, 2024-t3, 7075-t6
 ftus = np.array([540, 620, 483, 469, 483, 572])*(10**6)
@@ -60,31 +60,41 @@ rhos = np.array([7850, 7850, 2800, 2780, 2780, 2810])
 # possibilities for variables:
 widths = np.arange(1, 20, 0.25)*0.001
 WDs = np.arange(1.2, 5.01, 0.2)
-ts = np.arange(0.005, 0.0001, -0.0005)
+#ts = np.arange(0.005, 0.0001, -0.0005)
 f = 0.006  # distance plate-hole
-
-
+tDs = np.matrix([0.06, 0.08, 0.1, 0.12, 0.15, 0.2, 0.3, 0.4])
+#Stress factor for Shear out bearing
 def kty(ratio):
     kt = -0.3359*ratio*ratio + 1.3813*ratio - 0.007
     return kt
 
+#Stress factor for Bolt/Pin bending
+
+def kbry(eD, tD):
+    kbr =
+    return kbr
 
 for mat in range(len(fyields)):
     for width in widths:
         for WD in WDs:
-            for t in ts:
+            for tD in tDs:
+                #Geometry
                 D = width*(1/WD)
-
-                # transverse loads
-                A1 = (width-D)*0.5
-                A2 = width*(1-1/WD)*t
+                A1 = ((width-D)/2 + D/2*(1-np.cos(pi/4))*t
+                A2 = (width-D)*t/2
                 A3 = A2
                 A4 = A1
+                t = t*tD
                 A_br = D*t
+
+                # axial loads
+                eD = A2 + D/2
+                K_bry = kbry(eD, tD)
+                P_bry = K_bry*A_br*fyields[mat]
+                R_a = F_z/P_bry
+
+                # transverse loads
                 A_av = 6/(3/A1+1/A2+1/A3+1/A4)
                 K_ty = kty(A_av/A_br)
                 P_ty = K_ty*A_br*fyields[mat]
                 R_tr = F_y/P_ty
-
-                # axial loads
-                A_t
