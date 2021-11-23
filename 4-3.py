@@ -62,39 +62,44 @@ widths = np.arange(1, 20, 0.25)*0.001
 WDs = np.arange(1.2, 5.01, 0.2)
 #ts = np.arange(0.005, 0.0001, -0.0005)
 f = 0.006  # distance plate-hole
-tDs = np.matrix([0.06, 0.08, 0.1, 0.12, 0.15, 0.2, 0.3, 0.4])
+tDs = np.array([0.06, 0.08, 0.1, 0.12, 0.15, 0.2, 0.3, 0.4, 0.6])
 #Stress factor for Shear out bearing
 def kty(ratio):
     kt = -0.3359*ratio*ratio + 1.3813*ratio - 0.007
     return kt
 
-#Stress factor for Bolt/Pin bending
 
-def kbry(eD, tD):
-    kbr =
-    return kbr
+
 
 for mat in range(len(fyields)):
     for width in widths:
         for WD in WDs:
-            for tD in tDs:
+            for i in range(0,9):
                 #Geometry
                 D = width*(1/WD)
-                A1 = ((width-D)/2 + D/2*(1-np.cos(pi/4))*t
+                eD = WD
+                curves = [curve06(eD), curve08(eD), curve10(eD), curve12(eD), curve15(eD), curve20(eD), curve30(eD), curve40(eD), curve60(eD)]
+                t = D*tD[i]
+                A1 = ((width-D)/2 + D/2*(1-np.cos(pi/4)))*t
                 A2 = (width-D)*t/2
                 A3 = A2
                 A4 = A1
-                t = t*tD
                 A_br = D*t
 
                 # axial loads
-                eD = A2 + D/2
-                K_bry = kbry(eD, tD)
+                K_bry = curves[i]
                 P_bry = K_bry*A_br*fyields[mat]
-                R_a = F_z/P_bry
+                R_a = (F_z/8)/P_bry
 
                 # transverse loads
                 A_av = 6/(3/A1+1/A2+1/A3+1/A4)
                 K_ty = kty(A_av/A_br)
                 P_ty = K_ty*A_br*fyields[mat]
-                R_tr = F_y/P_ty
+                R_tr = (F_y/8)/P_ty
+
+
+                #Margin of Safety
+                if R_a < 1 and R_tr < 1:
+                    MS = 1/((R_a ** 1.6 + R_tr ** 1.6)** 0.625) -1
+                    row = np.array([width, t, D, P_bry, P_ty, MS])  
+                
