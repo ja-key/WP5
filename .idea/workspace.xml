@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="496207aa-fd2d-4897-a8b1-b1498b95d353" name="Default Changelist" comment="added comments">
-      <change afterPath="$PROJECT_DIR$/thermal_stress_check.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bearing check.py" beforeDir="false" afterPath="$PROJECT_DIR$/bearing check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thermal_stress_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermal_stress_check.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,9 +145,9 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.bearing check" />
       <item itemvalue="Python.4.8 revenge" />
       <item itemvalue="Python.4.NEIN" />
-      <item itemvalue="Python.bearing check" />
     </list>
     <recent_temporary>
       <list>
@@ -239,21 +240,21 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637678987376" />
-    <state width="1899" height="285" key="GridCell.Tab.0.bottom" timestamp="1637676189887">
+    <state width="1899" height="285" key="GridCell.Tab.0.bottom" timestamp="1637685284355">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637676189887" />
-    <state width="1899" height="285" key="GridCell.Tab.0.center" timestamp="1637676189887">
+    <state width="1899" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637685284355" />
+    <state width="1899" height="285" key="GridCell.Tab.0.center" timestamp="1637685284355">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="285" key="GridCell.Tab.0.center/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637676189887" />
-    <state width="1899" height="285" key="GridCell.Tab.0.left" timestamp="1637676189887">
+    <state width="1899" height="285" key="GridCell.Tab.0.center/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637685284355" />
+    <state width="1899" height="285" key="GridCell.Tab.0.left" timestamp="1637685284355">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="285" key="GridCell.Tab.0.left/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637676189887" />
-    <state width="1899" height="285" key="GridCell.Tab.0.right" timestamp="1637676189887">
+    <state width="1899" height="285" key="GridCell.Tab.0.left/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637685284355" />
+    <state width="1899" height="285" key="GridCell.Tab.0.right" timestamp="1637685284355">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637676189887" />
+    <state width="1899" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637685284355" />
   </component>
 </project>
