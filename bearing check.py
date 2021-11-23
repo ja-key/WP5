@@ -32,15 +32,15 @@ def bearing_check(Fx, Fz, n_f, location, x_avg, z_avg, x_pos, z_pos): #Fx is the
     return (r_lst,pos_lst, F_lst, F_tot)
 
 
-test = 3106.75, 1035.58, 20, (250, 250), 250, 260, (50, 150, 250, 350, 450), (160, 210, 310, 360)
-x_pos = np.array([50, 150, 250, 350, 450])
-z_pos = np.array([160, 210, 310, 360])
-print(bearing_check(1035.58, 3106.75, 20, (250, 250), 250, 260, x_pos, z_pos))
+test = 3106.75, 1035.58, 4, (0.0075, 0.006), 0.0075, 0.005, [0.003, 0.012], (160, 210, 310, 360)
+x_pos = np.array([0.003, 0.012])
+z_pos = np.array([0.003, 0.007])
+print(bearing_check(1035.58, 3106.75, 4, (0.0075, 0.006), 0.0075, 0.005, x_pos, z_pos))
 
 def FailureTest(MaxBearingStress, t, D_2, ):
     TFail = []
     for i in F_tot:
-        BearingStress = F_tot[0] / (D_2*t)
+        BearingStress = i / (D_2*t)
         if MaxBearingStress > BearingStress:
             TFail.append(0)
         else:
