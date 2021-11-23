@@ -25,6 +25,13 @@ print(forces)
 F1 = forces[0]
 F2 = forces[1]
 
+#Tension is limiting
+
+F1_y = F1 * np.sin(pi/3)
+F1_z = F1 * np.cos(pi/3)
+
+print(F1_y, F1_z)
+
 ###top lug net force
 ##F1_ztot = F_z/2
 ##F1_ytot = F_y/2 + F_1

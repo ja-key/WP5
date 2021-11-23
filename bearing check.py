@@ -37,14 +37,28 @@ x_pos = np.array([0.003, 0.012])
 z_pos = np.array([0.003, 0.007])
 print(bearing_check(1035.58, 3106.75, 4, (0.0075, 0.006), 0.0075, 0.005, x_pos, z_pos))
 
-def FailureTest(MaxBearingStress, t, D_2, ):
-    TFail = []
+def FailureTestLug(MaxBearingStress, t, D_2, ):  # Tests each fastener for maximum bearing stress (Lug)
+    TFail = []  # Creates a list for each fastener
     for i in F_tot:
         BearingStress = i / (D_2*t)
-        if MaxBearingStress > BearingStress:
-            TFail.append(0)
-        else:
-            TFail.append(1)
-    return(TFail)
 
-print(FailureTest(800,3,5))
+        if MaxBearingStress > BearingStress:
+            TFail.append(0)  # If fastener is sufficiently strong, a 0 is added to the list
+        else:
+            TFail.append(1)  # If fastener is not sufficiently strong, a 1 is added to the list
+    return (TFail)
+
+print(FailureTestLug(800, 3, 5))
+
+
+def FailureTestWall(MaxBearingStress, TSpaceWall, D_2):  # Tests each fastener for maximum bearing stress (SpaceWall)
+    TFailWall = []  # Creates a list for each fastener
+    for i in F_tot:
+        BearingStress = F_tot[0] / (D_2 * TSpaceWall)
+        if MaxBearingStress > BearingStress:
+            TFailWall.append(0)  # If fastener is sufficiently strong, a 0 is added to the list
+        else:
+            TFail.append(1)  # If fastener is not sufficiently strong, a 1 is added to the list
+    return (TFailWall)
+
+print(FailureTestWall(800, 3, 5))
