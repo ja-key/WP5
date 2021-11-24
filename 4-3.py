@@ -48,6 +48,12 @@ def curve60(eD):
     return kbr
 
 
+def get_mass(w, d, t, rho):
+    flange_mass = ((f+d/2)*w+0.5*pi*w*w*0.25-pi*d*d*0.25) * rho
+    # rectangle + half circle - hole
+    return flange_mass
+
+
 #input forces
 F_z = 1852.32  # [N] in direction of flight (axial)
 F_y = 3208.31  # [N] in lateral direction (assumed out of s/c)
@@ -89,6 +95,10 @@ for mat in range(len(fyields)):
                 A4 = A1
                 A_br = D*t
 
+                # material
+                rho = rhos[mat]
+                mass = get_mass(width, D, t, rho)
+
                 # axial loads
                 K_bry = curves[i]
                 P_bry = K_bry*A_br*fyields[mat]
@@ -104,17 +114,35 @@ for mat in range(len(fyields)):
                 if R_a < 1 and R_tr < 1:
                     MS = 1/((R_a ** 1.6 + R_tr ** 1.6) ** 0.625) - 1
                     if np.logical_not(np.isnan(MS)):  # checks is MS is real
-                        print(MS)
-                        row = [width, t, D, P_bry, P_ty, MS]
+                        row = [width, t, D, P_bry, P_ty, rho, mass, MS]
                         luglist.append(row)
 
 lugarr = np.array(luglist)
 # array of all the MSs
 MSarr = lugarr[:, -1]
+# indices of lugs where MS < 0.1 %
+best_lugs = np.where(MSarr[MSarr > 0] < 0.001)[0]
+best_lug_arr = lugarr[best_lugs]
+
+masses = best_lug_arr[:, -2]
+minmass = np.min(masses)
+index_mass_min = np.where(masses == minmass)[0]
+
+
+best_index = np.where(best_lug_arr[:, -2] == minmass)[0]
+
+print("minimum mass with MS < 0.1% is: ",
+      minmass, "with index: ", int(best_index))
+
+print("this makes the best lug have the parameters: ",
+      best_lug_arr[best_index][0])
+'''
 MS_min = np.min(MSarr[MSarr > 0])
+
 index_MS_min = np.where(MSarr == MS_min)[0]
 
 print("minimum MS is: ",  np.min(
     MSarr[MSarr > 0]), "with index: ", int(index_MS_min))
 
 print("this makes the best lug have the parameters: ", lugarr[index_MS_min][0])
+'''
