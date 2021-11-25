@@ -4,8 +4,8 @@ def D2(w, s): #only w is limiting for the hole diameter since the lug is wider t
     D2 = w/(s+3)
     return D2
 
-def fastener_spacing(D_2, w, Br):
-    x_pos = np.array([1.5*D_2, Br-1.5*D_2])
+def fastener_spacing(D_2, w, L):
+    x_pos = np.array([1.5*D_2, L-1.5*D_2])
     z_pos = np.array([1.5*D_2, w-1.5*D_2])
     x_avg = np.average(x_pos)
     z_avg = np.average(z_pos)

@@ -3,7 +3,7 @@ from math import sqrt
 from thermal_stress_check import thermal_force
 
 F_tot = []  # list of the total applied force on each fastener
-def bearing_check(Fx, Fz, n_f, location, x_avg, z_avg, x_pos, z_pos): #Fx is the applied force in the x direction, Fz is the applied force in the z direction, location is the location of the applied force with respect to the coordinate system input is an list of the form [x, z]
+def bearing_force(Fx, Fz, n_f, location, x_avg, z_avg, x_pos, z_pos): #Fx is the applied force in the x direction, Fz is the applied force in the z direction, location is the location of the applied force with respect to the coordinate system input is an list of the form [x, z]
     F_ipx = Fx/n_f      #Force applied on the fasteners positive upward
     F_ipz = Fz/n_f      #Force applied on the fasteners positive upward
     M_cgz = Fz*(location[0]-x_avg) + Fx * -(location[1]-z_avg)      #total applied moment on the fasteners with counterclockwise positive
@@ -30,13 +30,13 @@ def bearing_check(Fx, Fz, n_f, location, x_avg, z_avg, x_pos, z_pos): #Fx is the
     for i in F_lst:
         F_tot.append(sqrt(i[0]**2 + i[1]**2))
 
-    return (r_lst,pos_lst, F_lst, F_tot)
+    return r_lst, pos_lst, F_lst, F_tot
 
 
 test = 3106.75, 1035.58, 4, (0.0075, 0.006), 0.0075, 0.005, [0.003, 0.012], (160, 210, 310, 360)
 x_pos = np.array([0.003, 0.012])
 z_pos = np.array([0.003, 0.007])
-print(bearing_check(1035.58, 3106.75, 4, (0.0075, 0.006), 0.0075, 0.005, x_pos, z_pos))
+print(bearing_force(1035.58, 3106.75, 4, (0.0075, 0.006), 0.0075, 0.005, x_pos, z_pos))
 
 def FailureTestLug(MaxBearingStress, t, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio, F_tot):  # Tests each fastener for maximum bearing stress (Lug)
     TFail = []  # Creates a list for each fastener
