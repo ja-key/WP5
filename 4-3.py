@@ -102,3 +102,4 @@ for mat in range(len(fyields)):
                 if R_a < 1 and R_tr < 1:
                     MS = 1/((R_a ** 1.6 + R_tr ** 1.6) ** 0.625) - 1
                     row = np.array([width, t, D, P_bry, P_ty, MS])
+                    print(row)

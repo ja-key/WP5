@@ -121,50 +121,51 @@ for mat in range(len(fyields)):
     for width in widths:
         for WD in WDs:
             for i in range(0, 9):
-                for j in [1, 2, 4]:
-                    #Geometry
-                    D = width*(1/WD)
-                    eD = WD
-                    Kbry_curves = [curve06(eD), curve08(eD), curve10(eD),
-                                   curve12(eD), curve15(eD), curve20(eD),
-                                   curve30(eD), curve40(eD), curve60(eD)]
-                    K_t = curve1(WD) if (mat == 0 | mat == 1) else curve4(WD) if (
-                        mat == 3 | mat == 4) else curve2(WD)if (mat == 2 | mat == 5) else 10e7
-                    t = D*tDs[i]
-                    A1 = ((width-D)/2 + D/2*(1-np.cos(pi/4)))*t
-                    A2 = (width-D)*t/2
-                    A3 = A2
-                    A4 = A1
-                    A_br = D*t
-                    A_t = (width-D)*t
-                    # material
-                    rho = rhos[mat]
-                    mass = get_mass(width, D, t, rho)
+                #Geometry
+                D = width*(1/WD)
+                eD = WD
+                Kbry_curves = [curve06(eD), curve08(eD), curve10(eD),
+                               curve12(eD), curve15(eD), curve20(eD),
+                               curve30(eD), curve40(eD), curve60(eD)]
+                K_t = curve1(WD) if (mat == 0 or mat == 1) else curve4(WD) if (
+                    mat == 3 or mat == 4) else curve2(WD) if (mat == 2 or mat == 5) else 10e7
+                print(K_t)
+                t = D*tDs[i]
+                A1 = ((width-D)/2 + D/2*(1-np.cos(pi/4)))*t
+                A2 = (width-D)*t/2
+                A3 = A2
+                A4 = A1
+                A_br = D*t
+                A_t = (width-D)*t
 
-                    # axial loads, bearing
-                    K_bry = Kbry_curves[i]
-                    P_bry = K_bry*A_br*fyields[mat]
+                # material
+                rho = rhos[mat]
+                mass = get_mass(width, D, t, rho)
 
-                    # axial loads, tension net section
-                    P_u = K_t*ftus[mat]*A_t
-                    if P_u < P_bry:
-                        R_a = (F_z/4)/P_u
-                    else:
-                        R_a = (F_z/4)/P_bry
+                # axial loads, bearing
+                K_bry = Kbry_curves[i]
+                P_bry = K_bry*A_br*fyields[mat]
 
-                    # transverse loads
-                    A_av = 6/(3/A1+1/A2+1/A3+1/A4)
-                    K_ty = kty(A_av/A_br)
-                    P_ty = K_ty*A_br*fyields[mat]
-                    R_tr = (F_y/4)/P_ty
+                # axial loads, tension net section
+                P_u = K_t*ftus[mat]*A_t
+                if P_u < P_bry:
+                    R_a = (F_z/4)/P_u
+                else:
+                    R_a = (F_z/4)/P_bry
 
-                    # Margin of Safety
-                    if R_a < 1 and R_tr < 1:
-                        MS = 1/((R_a ** 1.6 + R_tr ** 1.6) ** 0.625) - 1
-                        if np.logical_not(np.isnan(MS)):  # checks if MS is real
-                            if MS < 0.10 and MS > 0.000001:
-                                row = [width, t, D, P_bry, P_ty, rho, mass, MS]
-                                luglist.append(row)
+                # transverse loads
+                A_av = 6/(3/A1+1/A2+1/A3+1/A4)
+                K_ty = kty(A_av/A_br)
+                P_ty = K_ty*A_br*fyields[mat]
+                R_tr = (F_y/4)/P_ty
+
+                # Margin of Safety
+                if R_a < 1 and R_tr < 1:
+                    MS = 1/((R_a ** 1.6 + R_tr ** 1.6) ** 0.625) - 1
+                    if np.logical_not(np.isnan(MS)):  # checks if MS is real
+                        if MS < 0.10 and MS > 0.000001:
+                            row = [width, t, D, P_bry, P_ty, rho, mass, MS]
+                            luglist.append(row)
 
 lugarr = np.array(luglist)
 # array of all the MSs, array of all the masses
@@ -176,7 +177,7 @@ print(minmass)
 index_mass_min = np.where(masses == minmass)[0]
 print(index_mass_min)
 
-best_lug = lugarr[index_mass_min][0]
+best_lug = lugarr[index_mass_min[-1]]
 
 print("minimum mass with MS < 10% is: ",
       minmass, "with index: ", index_mass_min)
