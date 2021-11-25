@@ -86,17 +86,15 @@ def curve60(eD):
 
 
 def get_mass(w, diameter, thickness, RHO):
-    flange_mass = ((f+diameter/2)*w + 0.5*pi*(0.5*w)
-                   ** 2 - pi*(0.5*diameter)**2) * thickness * RHO
-    weight = RHO * ((((pi*(w/2)**2)/2 + (w * (diameter/2 + 0.005)
-                                         ) - pi * (diameter/2)**2) * thickness))
+    flange_mass = ((f+diameter*0.5)*w + 0.5*pi*(0.5*w)**2
+                   - pi * (0.5*diameter)**2) * thickness * RHO
     # rectangle + half circle - hole
-    return weight
+    return flange_mass
 
 
 #input forces
 F_z = 1852.32  # [N] in direction of flight (axial)
-F_y = 3208.31  # [N] in lateral direction (assumed out of s/c)
+F_y = 3208.31   # [N] in lateral direction (assumed out of s/c)
 
 # materials: 4130 steel, 8630 steel, 2014-t6, 2024-t4, 2024-t3, 7075-t6
 ftus = np.array([540, 620, 483, 469, 483, 572])*(10**6)
@@ -104,12 +102,13 @@ fyields = np.array([460, 550, 414, 324, 345, 503])*10**6
 rhos = np.array([7850, 7850, 2800, 2780, 2780, 2810])
 
 # possibilities for variables:
-widths = np.arange(1, 20, 0.25)*0.001
-WDs = np.arange(1.2, 5.01, 0.2)
+widths = np.arange(5, 20, 0.25)*0.001
+WDs = np.arange(1.4, 5.01, 0.2)
 #ts = np.arange(0.005, 0.0001, -0.0005)
 f = 0.01  # distance plate-hole
 tDs = np.array([0.06, 0.08, 0.1, 0.12, 0.15, 0.2, 0.3, 0.4, 0.6])
 #Stress factor for Shear out bearing
+print(get_mass(0.01, 0.003, 0.002, 2710))
 
 
 def kty(ratio):
@@ -130,7 +129,7 @@ for mat in range(len(fyields)):
                                    curve12(eD), curve15(eD), curve20(eD),
                                    curve30(eD), curve40(eD), curve60(eD)]
                     K_t = curve1(WD) if (mat == 0 | mat == 1) else curve4(WD) if (
-                        mat == 3 | mat == 4) else curve2(WD)if (mat == 2 | mat == 5) else 0
+                        mat == 3 | mat == 4) else curve2(WD)if (mat == 2 | mat == 5) else 10e7
                     t = D*tDs[i]
                     A1 = ((width-D)/2 + D/2*(1-np.cos(pi/4)))*t
                     A2 = (width-D)*t/2
@@ -149,21 +148,21 @@ for mat in range(len(fyields)):
                     # axial loads, tension net section
                     P_u = K_t*ftus[mat]*A_t
                     if P_u < P_bry:
-                        R_a = (F_z/8)/P_u
+                        R_a = (F_z/4)/P_u
                     else:
-                        R_a = (F_z/8)/P_bry
+                        R_a = (F_z/4)/P_bry
 
                     # transverse loads
                     A_av = 6/(3/A1+1/A2+1/A3+1/A4)
                     K_ty = kty(A_av/A_br)
                     P_ty = K_ty*A_br*fyields[mat]
-                    R_tr = (F_y/8)/P_ty
+                    R_tr = (F_y/4)/P_ty
 
                     # Margin of Safety
                     if R_a < 1 and R_tr < 1:
                         MS = 1/((R_a ** 1.6 + R_tr ** 1.6) ** 0.625) - 1
-                        if np.logical_not(np.isnan(MS)):
-                            if MS < 0.1 and MS > 0:  # checks is MS is real
+                        if np.logical_not(np.isnan(MS)):  # checks if MS is real
+                            if MS < 0.10 and MS > 0.000001:
                                 row = [width, t, D, P_bry, P_ty, rho, mass, MS]
                                 luglist.append(row)
 
@@ -173,16 +172,22 @@ MSarr = lugarr[:, -1]
 masses = lugarr[:, -2]
 print(masses)
 minmass = np.min(masses)
+print(minmass)
 index_mass_min = np.where(masses == minmass)[0]
+print(index_mass_min)
 
 best_lug = lugarr[index_mass_min][0]
 
-print("minimum mass with MS < 0.1% is: ",
+print("minimum mass with MS < 10% is: ",
       minmass, "with index: ", index_mass_min)
 
 print("this makes the best lug have the parameters: ",
-      f"width = {(best_lug[0])*1000}, thickness = {(best_lug[1])*1000}, diameter = {(best_lug[2])*1000}",
+      f'''width = {(best_lug[0])*1000},
+thickness = {(best_lug[1])*1000},
+diameter = {(best_lug[2])*1000}''',
       f"rho = {best_lug[5]}, mass = {(best_lug[6])*1000} g, MS = {best_lug[7]}")
+
+
 '''
 MS_min = np.min(MSarr[MSarr > 0])
 
