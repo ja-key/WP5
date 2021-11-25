@@ -38,7 +38,7 @@ x_pos = np.array([0.003, 0.012])
 z_pos = np.array([0.003, 0.007])
 print(bearing_check(1035.58, 3106.75, 4, (0.0075, 0.006), 0.0075, 0.005, x_pos, z_pos))
 
-def FailureTestLug(MaxBearingStress, t, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio):  # Tests each fastener for maximum bearing stress (Lug)
+def FailureTestLug(MaxBearingStress, t, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio, F_tot):  # Tests each fastener for maximum bearing stress (Lug)
     TFail = []  # Creates a list for each fastener
     thermal_force(a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio)
     safety_factor = []
@@ -58,7 +58,7 @@ def FailureTestLug(MaxBearingStress, t, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b,
 print(FailureTestLug(800, 3, 5))
 
 
-def FailureTestWall(MaxBearingStress, TSpaceWall, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio):  # Tests each fastener for maximum bearing stress (SpaceWall)
+def FailureTestWall(MaxBearingStress, TSpaceWall, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio F_tot):  # Tests each fastener for maximum bearing stress (SpaceWall)
     TFailWall = []  # Creates a list for each fastener
     safety_factor = []
     thermal_force(a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio)
