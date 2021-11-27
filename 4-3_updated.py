@@ -128,7 +128,7 @@ for mat in range(len(fyields)):
                                curve12(eD), curve15(eD), curve20(eD),
                                curve30(eD), curve40(eD), curve60(eD)]
                 K_t = curve1(WD) if (mat == 0 or mat == 1) else curve4(WD) if (
-                    mat == 3 or mat == 4) else curve2(WD) if (mat == 2 or mat == 5) else 10e7
+                    mat == 3 or mat == 4) else curve2(WD)
                # K_t = [curve06(eD), curve08(eD), curve10(eD),
                 #               curve12(eD), curve15(eD), curve20(eD),
                  #              curve30(eD), curve40(eD), curve60(eD)]
