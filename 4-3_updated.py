@@ -123,13 +123,16 @@ for mat in range(len(fyields)):
             for i in range(0, 9):
                 #Geometry
                 D = width*(1/WD)
-                eD = WD
+                eD = 1/2 * WD
                 Kbry_curves = [curve06(eD), curve08(eD), curve10(eD),
                                curve12(eD), curve15(eD), curve20(eD),
                                curve30(eD), curve40(eD), curve60(eD)]
                 K_t = curve1(WD) if (mat == 0 or mat == 1) else curve4(WD) if (
                     mat == 3 or mat == 4) else curve2(WD) if (mat == 2 or mat == 5) else 10e7
-                print(K_t)
+               # K_t = [curve06(eD), curve08(eD), curve10(eD),
+                #               curve12(eD), curve15(eD), curve20(eD),
+                 #              curve30(eD), curve40(eD), curve60(eD)]
+                #print(K_t)
                 t = D*tDs[i]
                 A1 = ((width-D)/2 + D/2*(1-np.cos(pi/4)))*t
                 A2 = (width-D)*t/2
@@ -149,15 +152,15 @@ for mat in range(len(fyields)):
                 # axial loads, tension net section
                 P_u = K_t*ftus[mat]*A_t
                 if P_u < P_bry:
-                    R_a = (F_z/4)/P_u
+                    R_a = (F_y/2)/P_u
                 else:
-                    R_a = (F_z/4)/P_bry
+                    R_a = (F_y/2)/P_bry
 
                 # transverse loads
                 A_av = 6/(3/A1+1/A2+1/A3+1/A4)
                 K_ty = kty(A_av/A_br)
                 P_ty = K_ty*A_br*fyields[mat]
-                R_tr = (F_y/4)/P_ty
+                R_tr = (F_z/2)/P_ty
 
                 # Margin of Safety
                 if R_a < 1 and R_tr < 1:
