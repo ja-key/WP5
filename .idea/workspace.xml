@@ -48,14 +48,36 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/dccs_stats" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/4-3_updated.py" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Mattia Scaglioni\Documents\Delft\BSc2\Q2\Project\THIS HELLHOLE" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.bearing check">
+  <component name="RunManager" selected="Python.4-3_updated">
+    <configuration name="4-3_updated" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="WP4" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\koktw\AppData\Local\Programs\Python\Python39\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/4-3_updated.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="4.8 revenge" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="WP4" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,30 +144,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="bearing check" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="WP4" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\twan.000\AppData\Local\Programs\Python\Python38-32\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bearing check.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.bearing check" />
+      <item itemvalue="Python.4-3_updated" />
       <item itemvalue="Python.4.8 revenge" />
       <item itemvalue="Python.4.NEIN" />
     </list>
@@ -228,33 +228,39 @@
     <option name="LAST_COMMIT_MESSAGE" value="added comments" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637675695799">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="331" y="87" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637856095447">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="331" y="87" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1637856095447" />
     <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637675695799" />
     <state x="669" y="120" key="#fastener_spacing" timestamp="1637674115995">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="669" y="120" key="#fastener_spacing/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637674115995" />
-    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1637678987376">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="592" y="219" key="FileChooserDialogImpl" timestamp="1637855931657">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="592" y="219" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1637855931657" />
     <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637678987376" />
-    <state width="1899" height="285" key="GridCell.Tab.0.bottom" timestamp="1637685284355">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="757" height="210" key="GridCell.Tab.0.bottom" timestamp="1637857448552">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="757" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1637857448552" />
     <state width="1899" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637685284355" />
-    <state width="1899" height="285" key="GridCell.Tab.0.center" timestamp="1637685284355">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="757" height="210" key="GridCell.Tab.0.center" timestamp="1637857448552">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="757" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1637857448552" />
     <state width="1899" height="285" key="GridCell.Tab.0.center/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637685284355" />
-    <state width="1899" height="285" key="GridCell.Tab.0.left" timestamp="1637685284355">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="757" height="210" key="GridCell.Tab.0.left" timestamp="1637857448550">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="757" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1637857448550" />
     <state width="1899" height="285" key="GridCell.Tab.0.left/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637685284355" />
-    <state width="1899" height="285" key="GridCell.Tab.0.right" timestamp="1637685284355">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="757" height="210" key="GridCell.Tab.0.right" timestamp="1637857448552">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="757" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1637857448552" />
     <state width="1899" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1637685284355" />
   </component>
 </project>
