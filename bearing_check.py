@@ -40,14 +40,17 @@ print(bearing_force(1035.58, 3106.75, 4, (0.0075, 0.006), 0.0075, 0.005, x_pos, 
 
 def FailureTestLug(MaxBearingStress, t, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, F_tot):  # Tests each fastener for maximum bearing stress (Lug)
     TFail = []  # Creates a list for each fastener
+    force_ratio = force_factor()
     thermal_force(a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio)
     safety_factor = []
-    force_ratio = force_factor(j)
+    safety_factor_thermal = []
     lugfailure = False
     for i in F_tot:
-        BearingStress = (i+max(F_dtpluslug, F_dtminlug)) / (D_2*t)
+        Bearingstress = (i)/ (D_2*t)
+        BearingStressthermal = (i-F_dtminlug)) / (D_2*t)
         safety_factor.append(Maxbearingstress/BearingStress - 1)
-        if MaxBearingStress > BearingStress:
+        safety_factor_thermal.append(Maxbearingstress/BearingStressthermal - 1)
+        if MaxBearingStress > BearingStressthermal:
             TFail.append(0)  # If fastener is sufficiently strong, a 0 is added to the list
         else:
             TFail.append(1)  # If fastener is not sufficiently strong, a 1 is added to the list
@@ -64,13 +67,16 @@ print(FailureTestLug(800, 3, 5))
 def FailureTestWall(MaxBearingStress, TSpaceWall, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, F_tot):  # Tests each fastener for maximum bearing stress (SpaceWall)
     TFailWall = []  # Creates a list for each fastener
     safety_factor = []
+    safety_factor_thermal = []
     force_ratio = force_factor()
     thermal_force(a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio)
     wallfailure = False
     for i in F_tot:
-        BearingStress = (i+max(F_dtplusskin, F_dtminskin)) / (D_2 * TSpaceWall)
+        BearingStress = (i-F_dtminskin)) / (D_2 * TSpaceWall)
+        BearingStressthermal = (i-F_dtminskin)) / (D_2 * TSpaceWall)
         safety_factor.append(Maxbearingstress/BearingStress - 1)
-        if MaxBearingStress > BearingStress:
+        safety_factor_thermal.append(Maxbearingstress / BearingStressthermal - 1)
+        if MaxBearingStress > BearingStressthermal:
             TFailWall.append(0)  # If fastener is sufficiently strong, a 0 is added to the list
         else:
             TFailWall.append(1)  # If fastener is not sufficiently strong, a 1 is added to the list
