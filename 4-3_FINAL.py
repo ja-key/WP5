@@ -132,7 +132,7 @@ for mat in range(len(fyields)):
                     mat == 3 or mat == 4) else curve2(WD)
                # K_t = [curve06(eD), curve08(eD), curve10(eD),
                 #               curve12(eD), curve15(eD), curve20(eD),
-                 #              curve30(eD), curve40(eD), curve60(eD)]
+                #              curve30(eD), curve40(eD), curve60(eD)]
                 #print(K_t)
                 t = D*tDs[i]
                 A1 = ((width-D)/2 + D/2*(1-np.cos(pi/4)))*t
@@ -143,7 +143,8 @@ for mat in range(len(fyields)):
                 A_t = (width-D)*t
 
                 #length of flange according to biaxial bending
-                l = fyields[mat]/(6*(F_z* width**2 * t**3 + F_x * t**2 * width**3))
+                l = fyields[mat] / \
+                    (6*(F_z * width**2 * t**3 + F_x * t**2 * width**3))
 
                 # material
                 rho = rhos[mat]
@@ -192,8 +193,9 @@ print("minimum mass with MS < 10% is: ",
 print("this makes the best lug have the parameters: ",
       f'''width = {(best_lug[0])*1000},
 thickness = {(best_lug[1])*1000},
-diameter = {(best_lug[2])*1000}''',
-      f"rho = {best_lug[5]}, mass = {(best_lug[6])*1000} g, MS = {best_lug[7]}")
+diameter = {(best_lug[2])*1000},
+length = {(best_lug[3])*1000}''',
+      f"rho = {best_lug[6]}, mass = {(best_lug[7])*1000} g, MS = {best_lug[8]}")
 
 
 '''
