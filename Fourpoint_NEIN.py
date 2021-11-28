@@ -18,9 +18,14 @@ def pull_fail_check(D_fo, D_fi, t2, t3, F_yi, G_yield, Ai, n_f):
         # Stress = lug1 [t2, t3], lug2 [t2, t3] ..... [ [ , ], [ , ], ]
         # np.append(Stress, f"{F_yi[i]/Area}")
 
-
+    safety_factors_wall = []
+    safety_factors_lug = []
     for i in range(int(n_f)):
         for j in range(2):
+            if j == 0:
+                safety_factors_lug.append(G_yield/Stress[i, j] - 1)
+            else:
+                safety_factors_wall.append(G_yield/Stress[i, j] - 1)
             if Stress[i, j] >= G_yield:
                 print("FAILURE")
                 pullfailure = True
@@ -32,4 +37,4 @@ def pull_fail_check(D_fo, D_fi, t2, t3, F_yi, G_yield, Ai, n_f):
             else:
                 print("Please proceed, no failure in pull-through")
 
-    return pullfailure
+    return pullfailure, safety_factors_lug, safety_factors_wall
