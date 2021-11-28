@@ -143,8 +143,7 @@ for mat in range(len(fyields)):
                 A_t = (width-D)*t
 
                 #length of flange according to biaxial bending
-                l = fyields[mat] / \
-                    (6*(F_z * width**2 * t**3 + F_x * t**2 * width**3))
+                l = fyields[mat]/(6*(F_z/ (width**2 * t) + F_x/ (t**2 * width)))
 
                 # material
                 rho = rhos[mat]
@@ -157,15 +156,15 @@ for mat in range(len(fyields)):
                 # axial loads, tension net section
                 P_u = K_t*ftus[mat]*A_t
                 if P_u < P_bry:
-                    R_a = (F_y/2)/P_u
+                    R_a = F_y/P_u
                 else:
-                    R_a = (F_y/2)/P_bry
+                    R_a = F_y/P_bry
 
                 # transverse loads
                 A_av = 6/(3/A1+1/A2+1/A3+1/A4)
                 K_ty = kty(A_av/A_br)
                 P_ty = K_ty*A_br*fyields[mat]
-                R_tr = (F_z/2)/P_ty
+                R_tr = F_z/P_ty
 
                 # Margin of Safety
                 if R_a < 1 and R_tr < 1:
