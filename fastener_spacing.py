@@ -10,7 +10,7 @@ def fastener_spacing(D_2, w, L):
     x_avg = np.average(x_pos)
     z_avg = np.average(z_pos)
 
-    return [x_pos, z_pos, x_avg, z_avg]
+    return x_pos, z_pos, x_avg, z_avg
 
 #temporarily commented out for simplicity
 
