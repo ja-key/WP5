@@ -30,38 +30,37 @@ def bearing_force(Fx, Fz, n_f, location, x_avg, z_avg, x_pos, z_pos): #Fx is the
     for i in F_lst:
         F_tot.append(sqrt(i[0]**2 + i[1]**2))
 
-    return r_lst, pos_lst, F_lst, F_tot
 
 
-test = 3106.75, 1035.58, 4, (0.0075, 0.006), 0.0075, 0.005, [0.003, 0.012], (160, 210, 310, 360)
-x_pos = np.array([0.003, 0.012])
-z_pos = np.array([0.003, 0.007])
-print(bearing_force(1035.58, 3106.75, 4, (0.0075, 0.006), 0.0075, 0.005, x_pos, z_pos))
+
+    return [r_lst, pos_lst, F_lst, F_tot]
+
+
 
 def FailureTestLug(MaxBearingStress, t, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, F_tot, D_fo, D_fi, E_a, t3):  # Tests each fastener for maximum bearing stress (Lug)
     TFail = []  # Creates a list for each fastener
     force_ratio = force_factor(D_fo, D_fi, E_a, E_b, t, t3)
-    thermal_force(a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio)
+    thermal_f = thermal_force(a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio)
+    F_dtminlug = thermal_f[1]
     safety_factor = []
     safety_factor_thermal = []
     lugfailure = False
     for i in F_tot:
         Bearingstress = (i)/ (D_2*t)
-        BearingStressthermal = (i-F_dtminlug)) / (D_2*t)
-        safety_factor.append(Maxbearingstress/BearingStress - 1)
-        safety_factor_thermal.append(Maxbearingstress/BearingStressthermal - 1)
+        BearingStressthermal = (i-F_dtminlug) / (D_2*t)
+        safety_factor.append(MaxBearingStress/Bearingstress - 1)
+        safety_factor_thermal.append(MaxBearingStress/BearingStressthermal - 1)
         if MaxBearingStress > BearingStressthermal:
             TFail.append(0)  # If fastener is sufficiently strong, a 0 is added to the list
         else:
             TFail.append(1)  # If fastener is not sufficiently strong, a 1 is added to the list
-    if 1 in Tfail:
-        Print('Bearing Failure at lug plate')
+    if 1 in TFail:
+        print('Bearing Failure at lug plate')
         lugfailure = True
     else:
-        Print('Bearing check passed in lug plate')
+        print('Bearing check passed in lug plate')
     return (TFail, safety_factor, lugfailure, safety_factor_thermal)
 
-print(FailureTestLug(800, 3, 5))
 
 
 def FailureTestWall(MaxBearingStress, TSpaceWall, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, F_tot, D_fo, D_fi, E_a, t2):  # Tests each fastener for maximum bearing stress (SpaceWall)
@@ -69,22 +68,21 @@ def FailureTestWall(MaxBearingStress, TSpaceWall, D_2, a_c1, a_c2, a_b, t_max, t
     safety_factor = []
     safety_factor_thermal = []
     force_ratio = force_factor(D_fo, D_fi, E_a, E_b, t2, TSpaceWall)
-    thermal_force(a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio)
+    thermal_f = thermal_force(a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio)
+    F_dtminskin = thermal_f[3]
     wallfailure = False
     for i in F_tot:
-        BearingStress = (i-F_dtminskin)) / (D_2 * TSpaceWall)
-        BearingStressthermal = (i-F_dtminskin)) / (D_2 * TSpaceWall)
-        safety_factor.append(Maxbearingstress/BearingStress - 1)
-        safety_factor_thermal.append(Maxbearingstress / BearingStressthermal - 1)
+        BearingStress = (i-F_dtminskin) / (D_2 * TSpaceWall)
+        BearingStressthermal = (i-F_dtminskin) / (D_2 * TSpaceWall)
+        safety_factor.append(MaxBearingStress/BearingStress - 1)
+        safety_factor_thermal.append(MaxBearingStress / BearingStressthermal - 1)
         if MaxBearingStress > BearingStressthermal:
             TFailWall.append(0)  # If fastener is sufficiently strong, a 0 is added to the list
         else:
             TFailWall.append(1)  # If fastener is not sufficiently strong, a 1 is added to the list
-    if 1 in Tfail:
-        Print('Bearing Failure at s/c skin')
+    if 1 in TFailWall:
+        print('Bearing Failure at s/c skin')
         wallfailure = True
     else:
-        Print('Bearing check passed in s/c skin')
+        print('Bearing check passed in s/c skin')
     return (TFailWall, safety_factor, wallfailure, safety_factor_thermal)
-
-print(FailureTestWall(800, 3, 5))

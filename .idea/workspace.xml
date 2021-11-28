@@ -22,7 +22,11 @@
     <list default="true" id="496207aa-fd2d-4897-a8b1-b1498b95d353" name="Default Changelist" comment="added comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A1_final_design.py" beforeDir="false" afterPath="$PROJECT_DIR$/A1_final_design.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fourpoint_NEIN.py" beforeDir="false" afterPath="$PROJECT_DIR$/Fourpoint_NEIN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fourpointeight_r.py" beforeDir="false" afterPath="$PROJECT_DIR$/Fourpointeight_r.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bearing_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/bearing_check.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastener_spacing.py" beforeDir="false" afterPath="$PROJECT_DIR$/fastener_spacing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thermal_stress_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermal_stress_check.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +52,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/thermal_stress_check.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/A1_final_design.py" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Mattia Scaglioni\Documents\Delft\BSc2\Q2\Project\THIS HELLHOLE" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.thermal_stress_check">
+  <component name="RunManager" selected="Python.A1_final_design">
     <configuration name="4.8 revenge" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="WP4" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -100,6 +104,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="A1_final_design" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="WP4" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\twan.000\AppData\Local\Programs\Python\Python38-32\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/A1_final_design.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="WP4" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,30 +148,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="thermal_stress_check" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="WP4" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\twan.000\AppData\Local\Programs\Python\Python38-32\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thermal_stress_check.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.thermal_stress_check" />
+      <item itemvalue="Python.A1_final_design" />
       <item itemvalue="Python.4.8 revenge" />
       <item itemvalue="Python.4.NEIN" />
     </list>
@@ -228,11 +232,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="added comments" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="363" y="218" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1638105163809">
+    <state x="363" y="218" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1638116948658">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="331" y="87" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1637856095447" />
-    <state x="363" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638105163809" />
+    <state x="363" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638116948658" />
     <state x="669" y="120" key="#fastener_spacing" timestamp="1637674115995">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -241,31 +245,31 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="669" y="120" key="#thermal_stress_check/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638105179778" />
-    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1638105162204">
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1638116947321">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="592" y="219" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1637855931657" />
-    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638105162204" />
-    <state width="1899" height="285" key="GridCell.Tab.0.bottom" timestamp="1638105246841">
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638116947321" />
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1638119993428">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="757" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1637857448552" />
-    <state width="1899" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638105246841" />
-    <state width="1899" height="285" key="GridCell.Tab.0.center" timestamp="1638105246841">
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638119993428" />
+    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1638119993428">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="757" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1637857448552" />
-    <state width="1899" height="285" key="GridCell.Tab.0.center/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638105246841" />
-    <state width="1899" height="285" key="GridCell.Tab.0.left" timestamp="1638105246841">
+    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638119993428" />
+    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1638119993428">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="757" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1637857448550" />
-    <state width="1899" height="285" key="GridCell.Tab.0.left/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638105246841" />
-    <state width="1899" height="285" key="GridCell.Tab.0.right" timestamp="1638105246841">
+    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638119993428" />
+    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1638119993428">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="757" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1637857448552" />
-    <state width="1899" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638105246841" />
+    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1050/-2560.-349.2048.1122@0.0.1920.1050" timestamp="1638119993428" />
     <state x="319" y="-18" width="1442" height="1037" maximized="true" key="dock-window-1" timestamp="1638109686115">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
