@@ -92,7 +92,7 @@ def get_mass(w, diameter, thickness, RHO, f):
     return flange_mass
 
 
-#input forces
+#input forces at F1
 F_z = 1034.45605656  # [N] in direction of flight (axial)
 F_y = 2842.14465682   # [N] in lateral direction (assumed out of s/c)
 F_x = 1640.91298269
@@ -151,7 +151,8 @@ for mat in range(len(fyields)):
 
                 # axial loads, bearing
                 K_bry = Kbry_curves[i]
-                P_bry = K_bry*A_br*fyields[mat]
+                A_sbr = np.sqrt((width)**2 - (D)**2)*t
+                P_bry = K_bry*A_sbr*fyields[mat]
 
                 # axial loads, tension net section
                 P_u = K_t*ftus[mat]*A_t
@@ -167,7 +168,7 @@ for mat in range(len(fyields)):
                 R_tr = F_z/P_ty
 
                 # Margin of Safety
-                if R_a < 1 and R_tr < 1:
+                if R_a < 1 and R_tr < 1 and l > 1.1 * (1/2*D):
                     MS = 1/((R_a ** 1.6 + R_tr ** 1.6) ** 0.625) - 1
                     if np.logical_not(np.isnan(MS)):  # checks if MS is real
                         if MS < 0.10 and MS > 0.000001:
