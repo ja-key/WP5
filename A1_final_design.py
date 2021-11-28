@@ -1,9 +1,9 @@
 import numpy as np
 from math import sqrt
 
-from 4.8_r import pull_through
-from 4_NEIN import pull_fail_check
-from 4.10 import force_factor
+from Fourpointeight_r import pull_through
+from Fourpoint_NEIN import pull_fail_check
+from forceratio import force_factor
 from bearing_check import bearing_force, FailureTestLug, FailureTestWall
 from fastener_spacing import D2, fastener_spacing
 # from bearing check import bearing_check
@@ -22,9 +22,15 @@ P =
 D =
 D2 = D2(w, s)
 fastener_spacing(D2, w, L)
-bearing_force()
-FailureTestLug()
+bearingforce = bearing_force()
+pullthroughforce = pull_through() #insert all the necessary variables
+if not (FailureTestLug() or FailureTestWall() or pull_fail_check()):
+    print(f"The lug has passed all checks, The MS's are:\n"
+          f"")
+else:
+    print("The lug has failed one or multiple checks, the checks failed are:\n"
+          "")
+
 FailureTestWall()
-pull_through() #insert all the necessary variables
 pull_fail_check()
 force_factor()
