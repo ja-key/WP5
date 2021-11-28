@@ -142,7 +142,7 @@ for mat in range(len(fyields)):
                 A_br = D*t
                 A_t = (width-D)*t
 
-                #length of flange according to biaxial bending
+                # length of flange according to biaxial bending
                 l = fyields[mat] / \
                     (6*(F_z * width**2 * t**3 + F_x * t**2 * width**3))
 
@@ -191,10 +191,10 @@ print("minimum mass with MS < 10% is: ",
       minmass, "with index: ", index_mass_min)
 
 print("this makes the best lug have the parameters: ",
-      f'''width = {(best_lug[0])*1000},
-thickness = {(best_lug[1])*1000},
-diameter = {(best_lug[2])*1000},
-length = {(best_lug[3])*1000}''',
+      f'''width = {(best_lug[0])*1000} mm,
+thickness = {(best_lug[1])*1000} mm,
+diameter = {(best_lug[2])*1000} mm,
+length = {(best_lug[3])*1000} mm''',
       f"rho = {best_lug[6]}, mass = {(best_lug[7])*1000} g, MS = {best_lug[8]}")
 
 
