@@ -202,10 +202,10 @@ print("minimum mass with MS < 10% is: ",
       minmass, "with index: ", index_mass_min)
 
 print(f'''this makes the best lug have the parameters:
-width = {(best_lug[0])*1000},
-thickness = {(best_lug[1])*1000},
-diameter = {(best_lug[2])*1000},
-length = {(best_lug[3])*1000},
-rho = {best_lug[6]},
+width = {(best_lug[0])*1000} mm,
+thickness = {(best_lug[1])*1000} mm,
+diameter = {(best_lug[2])*1000} mm,
+length = {(best_lug[3])*1000} mm,
+rho = {best_lug[6]} kg/m^3,
 mass = {(best_lug[7])*1000} g,
 MS = {best_lug[8]}''')
