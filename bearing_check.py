@@ -47,7 +47,7 @@ def FailureTestLug(MaxBearingStress, t, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b,
     lugfailure = False
     for i in F_tot:
         Bearingstress = (i)/ (D_2*t)
-        BearingStressthermal = (i-F_dtminlug) / (D_2*t)
+        BearingStressthermal = (i+F_dtminlug) / (D_2*t)
         safety_factor.append(MaxBearingStress/Bearingstress - 1)
         safety_factor_thermal.append(MaxBearingStress/BearingStressthermal - 1)
         if MaxBearingStress > BearingStressthermal:
@@ -69,11 +69,12 @@ def FailureTestWall(MaxBearingStress, TSpaceWall, D_2, a_c1, a_c2, a_b, t_max, t
     safety_factor_thermal = []
     force_ratio = force_factor(D_fo, D_fi, E_a, E_b, t2, TSpaceWall)
     thermal_f = thermal_force(a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio)
+    print(thermal_f)
     F_dtminskin = thermal_f[3]
     wallfailure = False
     for i in F_tot:
-        BearingStress = (i-F_dtminskin) / (D_2 * TSpaceWall)
-        BearingStressthermal = (i-F_dtminskin) / (D_2 * TSpaceWall)
+        BearingStress = (i) / (D_2 * TSpaceWall)
+        BearingStressthermal = (i+F_dtminskin) / (D_2 * TSpaceWall)
         safety_factor.append(MaxBearingStress/BearingStress - 1)
         safety_factor_thermal.append(MaxBearingStress / BearingStressthermal - 1)
         if MaxBearingStress > BearingStressthermal:
