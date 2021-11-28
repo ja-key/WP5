@@ -22,7 +22,7 @@
     <list default="true" id="496207aa-fd2d-4897-a8b1-b1498b95d353" name="Default Changelist" comment="added comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A1_final_design.py" beforeDir="false" afterPath="$PROJECT_DIR$/A1_final_design.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bearing_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/bearing_check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastener_spacing.py" beforeDir="false" afterPath="$PROJECT_DIR$/fastener_spacing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

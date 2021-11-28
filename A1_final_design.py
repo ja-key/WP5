@@ -19,14 +19,32 @@ w =
 s =
 L =
 P =
-D =
+D1 =
+n_f =
+location =
+a_c1 =
+a_c2 =
+a_b =
+t_max =
+t_min =
+E_b =
+A_sm =
+D_fo =
+D_fi =
+E_a1 =
+E_a2 =
+Ai =
+G_yield =
+
+
+
 D2 = D2(w, s)
 fastener_spacing(D2, w, L)
-bearingforce = bearing_force()
-pull_fail_check()
-wallbearingtest = FailureTestWall()
-lugbearingtest = FailureTestLug()
-pull_through(Fx, Fy, Fz, x_pos, z_pos, x_avg, z_avg, n_f, Ai) #insert all the necessary variables
+bearingforce = bearing_force(Fx, Fz, n_f, location, x_avg, z_avg, x_pos, z_pos)
+wallbearingtest = FailureTestWall(MaxBearingStress, t3, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, F_tot, D_fo, D_fi, E_a2, t2)
+lugbearingtest = FailureTestLug(MaxBearingStress, t2, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, F_tot, D_fo, D_fi, E_a1, t3)
+pull_through(Fx, Fy, Fz, x_pos, z_pos, x_avg, z_avg, n_f, Ai)#insert all the necessary variables
+pull_fail_check(D_fo, D_fi, t2, t3, F_yi, G_yield, Ai, n_f)
 if not (lugbearingtest[2] or wallbearingtest[2] or pullfailure):
     print(f"The lug has passed all checks, The MS's are:\n"
           f"lug = {}\n"
