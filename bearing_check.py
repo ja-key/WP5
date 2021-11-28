@@ -38,9 +38,9 @@ x_pos = np.array([0.003, 0.012])
 z_pos = np.array([0.003, 0.007])
 print(bearing_force(1035.58, 3106.75, 4, (0.0075, 0.006), 0.0075, 0.005, x_pos, z_pos))
 
-def FailureTestLug(MaxBearingStress, t, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, F_tot):  # Tests each fastener for maximum bearing stress (Lug)
+def FailureTestLug(MaxBearingStress, t, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, F_tot, D_fo, D_fi, E_a, t3):  # Tests each fastener for maximum bearing stress (Lug)
     TFail = []  # Creates a list for each fastener
-    force_ratio = force_factor()
+    force_ratio = force_factor(D_fo, D_fi, E_a, E_b, t, t3)
     thermal_force(a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio)
     safety_factor = []
     safety_factor_thermal = []
@@ -59,16 +59,16 @@ def FailureTestLug(MaxBearingStress, t, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b,
         lugfailure = True
     else:
         Print('Bearing check passed in lug plate')
-    return (TFail, safety_factor, lugfailure)
+    return (TFail, safety_factor, lugfailure, safety_factor_thermal)
 
 print(FailureTestLug(800, 3, 5))
 
 
-def FailureTestWall(MaxBearingStress, TSpaceWall, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, F_tot):  # Tests each fastener for maximum bearing stress (SpaceWall)
+def FailureTestWall(MaxBearingStress, TSpaceWall, D_2, a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, F_tot, D_fo, D_fi, E_a, t2):  # Tests each fastener for maximum bearing stress (SpaceWall)
     TFailWall = []  # Creates a list for each fastener
     safety_factor = []
     safety_factor_thermal = []
-    force_ratio = force_factor()
+    force_ratio = force_factor(D_fo, D_fi, E_a, E_b, t2, TSpaceWall)
     thermal_force(a_c1, a_c2, a_b, t_max, t_min, E_b, A_sm, force_ratio)
     wallfailure = False
     for i in F_tot:
@@ -85,6 +85,6 @@ def FailureTestWall(MaxBearingStress, TSpaceWall, D_2, a_c1, a_c2, a_b, t_max, t
         wallfailure = True
     else:
         Print('Bearing check passed in s/c skin')
-    return (TFailWall, safety_factor, wallfailure)
+    return (TFailWall, safety_factor, wallfailure, safety_factor_thermal)
 
 print(FailureTestWall(800, 3, 5))

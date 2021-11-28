@@ -23,14 +23,26 @@ D =
 D2 = D2(w, s)
 fastener_spacing(D2, w, L)
 bearingforce = bearing_force()
-pullthroughforce = pull_through() #insert all the necessary variables
-if not (FailureTestLug() or FailureTestWall() or pull_fail_check()):
-    print(f"The lug has passed all checks, The MS's are:\n"
-          f"")
-else:
-    print("The lug has failed one or multiple checks, the checks failed are:\n"
-          "")
-
-FailureTestWall()
 pull_fail_check()
-force_factor()
+wallbearingtest = FailureTestWall()
+lugbearingtest = FailureTestLug()
+pull_through(Fx, Fy, Fz, x_pos, z_pos, x_avg, z_avg, n_f, Ai) #insert all the necessary variables
+if not (lugbearingtest[2] or wallbearingtest[2] or pullfailure):
+    print(f"The lug has passed all checks, The MS's are:\n"
+          f"lug = {}\n"
+          f"Lug backplate bearing = {lugbearingtest[1]}\n"
+          f"Spacecraft skin bearing = {wallbearingtest[1]}\n"
+          f"Lug backplate bearing with added thermal stresses = {lugbearingtest[3]}\n"
+          f"Spacecraft skin bearing with added thermal stresses = {wallbearingtest[3]}\n"
+          f"Spacecraft wall pull through = {safety_factors_wall}\n"
+          f"Spacecraft lug backplate pull through = {safety_factors_wall}")
+else:
+    print("The lug has failed one or multiple checks, The MS's are:\           "
+            f"lug = {}\n"
+          f"Lug backplate bearing = {lugbearingtest[1]}\n"
+          f"Spacecraft skin bearing = {wallbearingtest[1]}\n"
+          f"Lug backplate bearing with added thermal stresses = {lugbearingtest[3]}\n"
+          f"Spacecraft skin bearing with added thermal stresses = {wallbearingtest[3]}\n"
+          f"Spacecraft wall pull through = {safety_factors_wall}\n"
+          f"Spacecraft lug backplate pull through = {safety_factors_wall}")")
+
