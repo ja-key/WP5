@@ -1,7 +1,7 @@
 import numpy as np
 
-def D2(w, s): #only w is limiting for the hole diameter since the lug is wider than it is tall
-    D2 = w/(s+3)
+def D2(w,L, s): #only w is limiting for the hole diameter since the lug is wider than it is tall
+    D2 = min(w, L)/(s+3)
     return D2
 
 def fastener_spacing(D_2, w, L):

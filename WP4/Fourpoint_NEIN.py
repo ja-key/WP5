@@ -17,7 +17,6 @@ def pull_fail_check(D_fo, D_fi, t2, t3, F_yi, G_yield, Ai, n_f):
 
         # Stress = lug1 [t2, t3], lug2 [t2, t3] ..... [ [ , ], [ , ], ]
         # np.append(Stress, f"{F_yi[i]/Area}")
-    print(Stress)
     safety_factors_wall = []
     safety_factors_lug = []
     for i in range(int(n_f)):
