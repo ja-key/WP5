@@ -8,7 +8,7 @@ import numpy as np
 #E is E-modulus in [GPa]
 
 def ColBuckle(R, L, E):
-    sigma_cr = np.pi * (E * 10**9) * R*R/(2*L*L)
+    sigma_cr = (np.pi * (E * 10**9) * R*R/(2*L*L))/(10**6)
     return sigma_cr
 
 print(ColBuckle(1, 5, 1))
