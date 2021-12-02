@@ -1,4 +1,4 @@
-1''' Euler Column Buckling '''
+''' Euler Column Buckling '''
 import numpy as np
 
 #Calculates critical buckling stress
@@ -12,4 +12,3 @@ def ColBuckle(R, L, E):
     return sigma_cr
 
 print(ColBuckle(1, 5, 1))
-      
