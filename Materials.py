@@ -32,7 +32,7 @@ vol_cfrp = 2*np.pi*R*t1_cfrp*(L-2*R) + 4*np.pi*R*R*t2_cfrp
 #print(vol_tanks)
 
 for i in range(len(list(vol_tanks))):
-    print(f"mass of tank {i+1} = {vol_tanks[i]*rhos[i]} kg")
+    print(f"mass of tank {materials[i]} = {vol_tanks[i]*rhos[i]} kg")
 
-print(f"""t_1_cfrp={t1_cfrp*1000} mm, t_2={t2_cfrp*1000} mm""")
+print(f"""t_1_cfrp={t1_cfrp*1000} mm, t2_cfrp={t2_cfrp*1000} mm""")
 print(f"mass of CFRP tank = {vol_cfrp*rho_cfrp} kg")
