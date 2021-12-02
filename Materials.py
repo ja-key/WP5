@@ -1,11 +1,21 @@
+from math import pi
+p = 21e5  # Pa
+R = 1.5  # m
+internal_vol = 1.01*32.97  # m^3
 
-p = 20e5  # Pa
-R = 2  # m
-vol = 1.01*32.97  # m^3
-t_1 = 1  # mm
-t_2 = 1  # mm
 
-sigma_yield = 827e6  # Pa
+L = 2/3*R+internal_vol/(pi*R*R)
 
-sigma_axial = p*R/(2*t_1)
-sigma_hoop = p*R/(t_2)
+print(L)
+#             material:Ti-6Al-4V
+sigma_yields = np.array([827e6  # Pa
+
+
+t_1 = p*R/(sigma_yield)
+t_2 = p*R/(2*sigma_yield)
+
+
+print(f"""t_1={t_1*1000} mm, t_2={t_2*1000} mm""")
+
+vol_cylinder = 2*pi*R*t_1*(L-2*R)
+print(vol_cylinder)
