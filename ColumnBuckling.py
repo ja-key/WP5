@@ -1,4 +1,4 @@
-''' Euler Column Buckling '''
+1''' Euler Column Buckling '''
 import numpy as np
 
 #Calculates critical buckling stress
