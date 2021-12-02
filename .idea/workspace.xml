@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="496207aa-fd2d-4897-a8b1-b1498b95d353" name="Default Changelist" comment="added comments">
-      <change afterPath="$PROJECT_DIR$/ShellBuckling.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MassLugTank.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,6 +199,7 @@
       <workItem from="1637674231798" duration="294000" />
       <workItem from="1638121048381" duration="1518000" />
       <workItem from="1638278914391" duration="3409000" />
+      <workItem from="1638451534641" duration="1135000" />
     </task>
     <task id="LOCAL-00001" summary="changed variables and added code to the bearing check">
       <created>1637071835082</created>
