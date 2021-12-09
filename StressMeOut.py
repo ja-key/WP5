@@ -24,7 +24,7 @@ def TankMass(rho, R, L, t1, t2):
     return mass
 Fz = 6*9.80665 * TankMass(rho, R, L, t1, t2)
 
-##if sigma_cr_shell > sigma_cr_col:
+#if sigma_cr_shell > sigma_cr_col:
 ##    print("The column buckling is more critical")
 ##    sigma_cr = sigma_cr_col
 ##elif sigma_cr_col > sigma_cr_shell:
@@ -63,11 +63,37 @@ if sigma > sigma_cr_shell and sigma > sigma_cr_col and change == "Yes":
 ##            shell_new = shellBuckle(p, R_new, L, E, t1, v)
 ##            if R_new > R_ult:
 ##                change = "No"
-                
-##elif sigma > sigma_cr_col:
-##    #R_new = L/np.pi * np.sqrt(2*sigma/E)
-##    L = np.pi*R * np.sqrt(E/(2*sigma))
-##    R = (2*np.pi*t1*L+ np.sqrt((2*np.pi*t1*L)**2 - 4*V*(4*np.pi*t1 - 4*np.pi*t2)))/(2*(4*np.pi*t1-4*np.pi*t))
+
+Rs = []
+Ls = []
+masses = []
+
+if sigma > sigma_cr_col:
+    L_cr = np.pi*R * np.sqrt(E/(2*sigma))
+    for Li in range(L_cr, L):
+        Ri = (2*np.pi*t1*Li+ np.sqrt((2*np.pi*t1*Li)**2 - 4*V*(4*np.pi*t1 - 4*np.pi*t2)))/(2*(4*np.pi*t1-4*np.pi*t))
+        sigma_col = ColBuckle(Ri, Li, E)
+        if sigma_col > sigma:
+            Rs.append(Ri)
+            Ls.append(Li)
+            masses.append(TankMass(rho, Ri, Li, t1, t2))
+    massArr = np.array(masses)
+    minIndex = np.where(massArr == np.min(massArr))[0]
+    R = Rs[minIndex]
+    L = Ls[minIndex]
+
+    #Re-calculate values 
+    sigma_cr_shell = shellBuckle(p, R, L, E, t1, v)
+    Fz = 6*9.80665 * TankMass(rho, R, L, t1, t2)
+    Area = 2* np.pi * R * t1
+    sigma = (Fz/Area)/(10**6)
+
+if sigma > sigma_cr_shell:
+    while sigma > sigma_cr_shell:
+        t1 = t1 + 0.001
+        sigma_cr_shell = shellBuckle(p, R, L, E, t1, v)
+    
+            
 ##    
 ####    newList = [R_new, L_new]
 ####    newNames = ["radius", "length"]
@@ -79,9 +105,9 @@ if sigma > sigma_cr_shell and sigma > sigma_cr_col and change == "Yes":
 ####    minIndex = np.where(massArr == np.min(massArr))[0]
 ####
 ##    print("\nIn order to meet buckling requirement either:\n1) Radius has to be changed to", R_new,"m or \n2) Length has to be changed to", L_new,"m.")
-    for i in minIndex:
-        print("To minimize mass to", massArr[i],"kg, change", newNames[i],"to", newList[i], "m")
-        
+##    for i in minIndex:
+##        print("To minimize mass to", massArr[i],"kg, change", newNames[i],"to", newList[i], "m")
+##        
 
 else:
     print("WORKS!")
