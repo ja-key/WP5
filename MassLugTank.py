@@ -3,7 +3,7 @@ import numpy as np
 g = 9.80665
 F_z_lug = 1034.5
 Launch_load = 6 * g
-n = input("Pls give number of attachments")
+n = int(input("Pls give number of attachments: "))
 m_prop = 39284
 m_lug = 1.046   # in grams
 
