@@ -11,7 +11,12 @@ p =  21 * 10**5                  # internal pressure of the tank [N/m] or [Pa]
 t2 =  3.22 * 10**(-3)                 # Thickness of the spherical caps [m]
 rho = 2700                 # Density of material used for tank [kg/m^3]
 change = "Yes"         # Checks if a variable has changed in previous loop
-#R_ult =                # Ultimate boundary for Radius
+
+''' Initial parameters for Titanium '''
+##E = 114 * 10**9                   # Young's Modulus of the material [Pa]
+##t1 =  3.81 * 10**(-3)                 # thickness of the straight part of the tank [m]
+##t2 =  1.91 * 10**(-3)                 # Thickness of the spherical caps [m]
+##rho = 4430                 # Density of material used for tank [kg/m^3]
 
 sigma_cr_shell = shellBuckle(p, R, L, E, t1, v)
 sigma_cr_col = ColBuckle(R, L, E)
@@ -89,10 +94,11 @@ if sigma > sigma_cr_col:
     sigma = (Fz/Area)/(10**6)
 
 if sigma > sigma_cr_shell:
+    t1_old = t1
     while sigma > sigma_cr_shell:
         t1 = t1 + 0.001
         sigma_cr_shell = shellBuckle(p, R, L, E, t1, v)
-    
+            
             
 ##    
 ####    newList = [R_new, L_new]
@@ -109,6 +115,7 @@ if sigma > sigma_cr_shell:
 ##        print("To minimize mass to", massArr[i],"kg, change", newNames[i],"to", newList[i], "m")
 ##        
 
-else:
+if :
+    
     print("WORKS!")
 
