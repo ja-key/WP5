@@ -1,7 +1,8 @@
 import numpy as np
 
 
-def MemberDes(rho, sigma_y, tau_y, W, Rs, Rt):
+def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
+    g = 9.80665
     for n in [12, 16, 20]:
         for theta_deg in range(30, 60):
             print(n, theta_deg)
@@ -10,8 +11,8 @@ def MemberDes(rho, sigma_y, tau_y, W, Rs, Rt):
             L = (Rs - Rt) / np.cos(theta)  # Length member, [unit of Rs and Rt]
 
             # Calculating forces in member
-            Vy = W * np.cos(theta) / n  # Shear Force, [N]
-            Fx = W * np.cos(theta) / n  # Tensile Force, [N]
+            Vy = (M * 6* g * np.cos(theta) + M*2*g*np.sin(theta))/ n  # Shear Force, [N]
+            Fx = (M * 6 * g * np.cos(theta) + M * 2 * g * np.sin(theta))/ n  # Tensile Force, [N]
 
             # Desirable outcome combinations
             R_t = []
@@ -28,7 +29,7 @@ def MemberDes(rho, sigma_y, tau_y, W, Rs, Rt):
                     MS_tau = np.absolute(tau_y / tau_max) - 1
                     MS_sigma = np.absolute(sigma_y / sigma_max) - 1
 
-                    if MS_tau >= 0.5 and MS_tau <= 5 and MS_sigma >= 0.5 and MS_sigma <= 5:
+                    if MS_tau >= 1 and MS_tau <= 8 and MS_sigma >= 1 and MS_sigma <= 8:
                         MS = min(MS_tau, MS_sigma)
                         theta_deg
                         R_t.append([Ro, t, n, theta_deg, round(MS, 2)])
@@ -53,7 +54,7 @@ def MemberDes(rho, sigma_y, tau_y, W, Rs, Rt):
     return (NewR_t, NewMass)
 
 
-W = 39000 * 6 * 9.80665
+M = 39000 # 9.80665
 E = 6.8 * 10 ** 10
 rho = 2.5 * 10 ** 3
 sigma_y = 3 * 10 ** 1
@@ -62,7 +63,7 @@ Rs = 2500
 Rt = 1500
 # n = 20
 
-x0 = MemberDes(rho, sigma_y, tau_y, W, Rs, Rt)[0]
+x0 = MemberDes(rho, sigma_y, tau_y, M, Rs, Rt)[0]
 # x1 = MemberDes(rho, sigma_y, tau_y, W, Rs, Rt)[1]
 
 
