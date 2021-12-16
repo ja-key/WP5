@@ -8,6 +8,7 @@ internal_vol = 1.01*32.97  # m^3
 
 L = 2/3*R+internal_vol/(pi*R*R)
 
+internal_vol = L*pi*R*R - 2/3*pi*R*R*R
 print(L)
 materials = np.array(['Ti-6Al-4V', 'AA2195-T84', 'AA2219-T87', 'CFRP'])
 sigma_yields = np.array([827e6, 490e6, 395e6])  # Pa
