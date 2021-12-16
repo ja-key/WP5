@@ -12,8 +12,9 @@ t2 =  3.22 * 10**(-3)                 # Thickness of the spherical caps [m]
 rho = 2700                 # Density of material used for tank [kg/m^3]
 sigma_y = 490e6           #yield stress of material [Pa]
 col_ind = "N"         # Checks if a variable has changed in previous loop
-shell_ind = "N"
+shell_ind = "N"       
 mAttatch = 0          #Mass of the attatchments
+D0 = 0.4/2.4
 
 ''' Initial parameters for Titanium '''
 ##E = 114 * 10**9                   # Young's Modulus of the material [Pa]
@@ -25,10 +26,12 @@ mAttatch = 0          #Mass of the attatchments
 sigma_cr_shell = shellBuckle(p, R, L, E, t1, v)
 sigma_cr_col = ColBuckle(R, L, E)
 
+L_min = 2.4 * D0
+
 def TankMass(rho, R, L, t1, t2):
     mass = rho*(2*np.pi*R*t1*(L-2*R) + 4*np.pi*R*R*t2) + 39284 + mAttatch
     return mass
-print("mass is", TankMass(rho, R, L, t1, t2))
+print("mass is", TankMass(rho, R, L, t1, t2) - 39284)
 
 V = 33.3    #Volume in [m^3]
 
@@ -95,12 +98,12 @@ if shell_ind == "N" and col_ind == "N":
         sigma_col = ColBuckle(Ri, Li, E)
         t1i = p*Ri/(sigma_y)
         t2i = p*Ri/(2*sigma_y)
-        if Li < 2*Ri:
+        if Li < 2*Ri + L_min:
             break
         if sigma_col > sigma:
             Rs.append(Ri)
             Ls.append(Li)
-            print("mass is", TankMass(rho, Ri, Li, t1i, t2i))
+            print("mass is", TankMass(rho, Ri, Li, t1i, t2i) - 39284)
             masses.append(TankMass(rho, Ri, Li, t1i, t2i))
             
     massArr = np.array(masses)
