@@ -4,7 +4,7 @@ import numpy as np
 def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
     g = 9.80665
     for n in [12, 16, 20]:
-        for theta_deg in range(30, 60):
+        for theta_deg in range(30, 61):  # so no 60?
             print(n, theta_deg)
             # Calculating member properties
             theta = (theta_deg / 360) * 2 * np.pi  # Angle wrt S/C horizontal, [rad]
@@ -60,7 +60,7 @@ rho = 2.5 * 10 ** 3
 sigma_y = 3 * 10 ** 1
 tau_y = 207
 Rs = 2500
-Rt = 1500
+Rt = 1990
 # n = 20
 
 x0 = MemberDes(rho, sigma_y, tau_y, M, Rs, Rt)[0]
