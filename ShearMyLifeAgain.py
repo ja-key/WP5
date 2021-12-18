@@ -3,9 +3,16 @@ import numpy as np
 
 def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
     g = 9.80665
+    R_t = [] #mm
+    Mass = [] #mm
     for n in [12, 16, 20]:
+<<<<<<< HEAD
         for theta_deg in range(30, 61):  # so no 60?
             print(n, theta_deg)
+=======
+        for theta_deg in range(30, 61):
+            # print(n, theta_deg)
+>>>>>>> 18649aefb815abff2c647dd292c653aba21a6405
             # Calculating member properties
             theta = (theta_deg / 360) * 2 * np.pi  # Angle wrt S/C horizontal, [rad]
             L = (Rs - Rt) / np.cos(theta)  # Length member, [unit of Rs and Rt]
@@ -15,8 +22,7 @@ def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
             Fx = (M * 6 * g * np.cos(theta) + M * 2 * g * np.sin(theta))/ n  # Tensile Force, [N]
 
             # Desirable outcome combinations
-            R_t = []
-            Mass = []
+
             for Ri in range(10, 150):  # Desired range for inner radii as determined by the team
                 for t in range(1, 50):  # Desired range for thicknesses as determined by the team
                     Ro = Ri + t  # Outer radius, [mm]
@@ -31,9 +37,9 @@ def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
 
                     if MS_tau >= 1 and MS_tau <= 8 and MS_sigma >= 1 and MS_sigma <= 8:
                         MS = min(MS_tau, MS_sigma)
-                        theta_deg
-                        R_t.append([Ro, t, n, theta_deg, round(MS, 2)])
                         m = (L / 1000) * np.pi * ((Ro / 1000) ** 2 - (Ri / 1000) ** 2) * rho * n
+                        R_t.append([Ro, t, n, theta_deg, round(MS, 2), round(m, 2)])
+
                         Mass.append(m)
 
     # Order the massive lists and limit their size
@@ -47,34 +53,42 @@ def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
         Mass.pop(index_min)
         R_t.pop(index_min)
 
-    print("Radius [mm], Thickness [mm], Attachments, Angle [deg], MS")
-    print(NewR_t)
-    print(NewMass)
+    firstval = [x[0] for x in NewR_t]
+    RadiiMass = []
+    RadiiR_t = []
+    maxvaluesRadii = 10
+    while len(RadiiMass) < maxvaluesRadii:
+        index_minRadius = firstval.index(min(firstval))
+        RadiiMass.append(NewMass[index_minRadius])
+        RadiiR_t.append(NewR_t[index_minRadius])
+        firstval.pop(index_minRadius)
+        NewMass.pop(index_minRadius)
+        NewR_t.pop(index_minRadius)
 
-    return (NewR_t, NewMass)
+    print("R_outer [mm], t [mm], n [-], theta [deg], M.S. [-], mass [kg]")
+    print(RadiiR_t)
 
 
-M = 39000 # 9.80665
+
+M = 877.53+39284 # kg 40163.22
 E = 6.8 * 10 ** 10
 rho = 2.5 * 10 ** 3
 sigma_y = 3 * 10 ** 1
 tau_y = 207
 Rs = 2500
+<<<<<<< HEAD
 Rt = 1990
+=======
+Rt = 1930
+>>>>>>> 18649aefb815abff2c647dd292c653aba21a6405
 # n = 20
 
-x0 = MemberDes(rho, sigma_y, tau_y, M, Rs, Rt)[0]
-# x1 = MemberDes(rho, sigma_y, tau_y, W, Rs, Rt)[1]
+x = MemberDes(rho, sigma_y, tau_y, M, Rs, Rt)
 
 
-# print("The list has now ", len(x1), " values.")
-# print("With masses ranging from ", x0[0], "kg to ", x0[-1], "kg")
-# print("In what range do you want to keep the masses?")
-# values_min = float(input("Lower bound:"))
-# values_max = float(input("Upper bound:"))
 
-# for i in x0:
-# if i >= values_min and i <=values_max:
+
+
 
 
 

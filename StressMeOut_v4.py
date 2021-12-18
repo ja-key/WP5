@@ -3,7 +3,7 @@ from ShellBuckling import shellBuckle
 from ColumnBuckling import ColBuckle
 
 R = 1.50                   # Radius in metres of the tank [m]
-L = 2.71                   # Total length of the tank in metres [m]
+L = 5.71                   # Total length of the tank in metres [m]
 E = 78 * 10**9                   # Young's Modulus of the material [Pa]
 v = 0.33                   # Material's poisson ratio []
 t1 =  6.43 * 10**(-3)                 # thickness of the straight part of the tank [m]
@@ -12,8 +12,9 @@ t2 =  3.22 * 10**(-3)                 # Thickness of the spherical caps [m]
 rho = 2700                 # Density of material used for tank [kg/m^3]
 sigma_y = 490e6           #yield stress of material [Pa]
 col_ind = "N"         # Checks if a variable has changed in previous loop
-shell_ind = "N"
+shell_ind = "N"       
 mAttatch = 0          #Mass of the attatchments
+D0 = 0.4/2.4
 
 ''' Initial parameters for Titanium '''
 ##E = 114 * 10**9                   # Young's Modulus of the material [Pa]
@@ -25,10 +26,12 @@ mAttatch = 0          #Mass of the attatchments
 sigma_cr_shell = shellBuckle(p, R, L, E, t1, v)
 sigma_cr_col = ColBuckle(R, L, E)
 
+L_min = 2.4 * D0
+
 def TankMass(rho, R, L, t1, t2):
     mass = rho*(2*np.pi*R*t1*(L-2*R) + 4*np.pi*R*R*t2) + 39284 + mAttatch
     return mass
-print("mass is", TankMass(rho, R, L, t1, t2))
+print("mass is", TankMass(rho, R, L, t1, t2) - 39284)
 
 V = 33.3    #Volume in [m^3]
 
@@ -42,10 +45,10 @@ masses = []
 
 if sigma > sigma_cr_col:
     col_ind = "Y"
-    L_old = L
-    L_cr = np.pi*R * np.sqrt(E/(2*sigma))
-    for Li in np.arange(L_cr, L, 0.01):
-        Ri = (2*np.pi*t1*Li+ np.sqrt((2*np.pi*t1*Li)**2 - 4*V*(4*np.pi*t1 - 4*np.pi*t2)))/(2*(4*np.pi*t1-4*np.pi*t))
+    R_old = R
+    R_cr = L/np.pi * np.sqrt((2*sigma)/E)
+    for Ri in np.arange(R, R_cr, 0.01):
+        Li = -4/3*Ri+V/(np.pi*Ri*Ri)
         sigma_col = ColBuckle(Ri, Li, E)
         if sigma_col > sigma:
             Rs.append(Ri)
@@ -83,24 +86,31 @@ print("Has it failed in Col?", col_ind,)
 print("Has it failed in Shell?", shell_ind)
 
 if shell_ind == "N" and col_ind == "N":
-    L_cr = np.pi*R * np.sqrt(E/(2*sigma))
-    print("L_cr is:", L_cr)
-    for Li in np.arange(L, L_cr, 0.1):
-        print("Li= ", Li)
-        Ri = (2*np.pi*t1*Li+ np.sqrt((2*np.pi*t1*Li)**2 - 4*V*(4*np.pi*t1 - 4*np.pi*t2)))/(2*(4*np.pi*t1-4*np.pi*t2))
+##    R_cr = L/np.pi * np.sqrt((2*sigma)/E)
+##    print("R_cr =", R_cr)
+##    if R_cr < 0.5:
+##        R_cr = 0.5
+##    print("R_cr is changed to:", R_cr)
+    for Ri in np.arange(0.5, 2.2+0.1, 0.01):
         print("Ri= ", Ri)
+        Li = 2/3*Ri+V/(np.pi*Ri*Ri)
+        print("Li =", Li)
         sigma_col = ColBuckle(Ri, Li, E)
+        t1i = p*Ri/(sigma_y)
+        t2i = p*Ri/(2*sigma_y)
+        if Li < 2*Ri + L_min:
+            break
         if sigma_col > sigma:
             Rs.append(Ri)
             Ls.append(Li)
-            print("mass is", TankMass(rho, Ri, Li, t1, t2))
-            masses.append(TankMass(rho, Ri, Li, t1, t2))
+            print("mass is", TankMass(rho, Ri, Li, t1i, t2i) - 39284)
+            masses.append(TankMass(rho, Ri, Li, t1i, t2i))
             
     massArr = np.array(masses)
-    print(MassArr)
-    print(Rs)
-    print(Ls)
-    minIndex = np.where(massArr == np.min(massArr))[0]
+    #print(massArr)
+    #print(Rs)
+    #print(Ls)
+    minIndex = np.where(massArr == np.min(massArr))[0][0]
     print(minIndex)
     R = Rs[minIndex]
     L = Ls[minIndex]
