@@ -6,6 +6,9 @@ def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
     R_t = [] #mm
     Mass = [] #mm
     for n in [12, 16, 20]:
+        for theta_deg in range(30, 61):  # so no 60?
+            print(n, theta_deg)
+
         for theta_deg in range(30, 61):
             # print(n, theta_deg)
             # Calculating member properties
@@ -76,7 +79,9 @@ rho = 2.5 * 10 ** 3
 sigma_y = 3 * 10 ** 1
 tau_y = 207
 Rs = 2500
+Rt = 1990
 Rt = 1930
+
 # n = 20
 
 ##x = MemberDes(rho, sigma_y, tau_y, M, Rs, Rt)
