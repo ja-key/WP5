@@ -6,13 +6,11 @@ def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
     R_t = [] #mm
     Mass = [] #mm
     for n in [12, 16, 20]:
-<<<<<<< HEAD
         for theta_deg in range(30, 61):  # so no 60?
             print(n, theta_deg)
-=======
+
         for theta_deg in range(30, 61):
             # print(n, theta_deg)
->>>>>>> 18649aefb815abff2c647dd292c653aba21a6405
             # Calculating member properties
             theta = (theta_deg / 360) * 2 * np.pi  # Angle wrt S/C horizontal, [rad]
             L = (Rs - Rt) / np.cos(theta)  # Length member, [unit of Rs and Rt]
@@ -76,11 +74,9 @@ rho = 2.5 * 10 ** 3
 sigma_y = 3 * 10 ** 1
 tau_y = 207
 Rs = 2500
-<<<<<<< HEAD
 Rt = 1990
-=======
 Rt = 1930
->>>>>>> 18649aefb815abff2c647dd292c653aba21a6405
+
 # n = 20
 
 x = MemberDes(rho, sigma_y, tau_y, M, Rs, Rt)
