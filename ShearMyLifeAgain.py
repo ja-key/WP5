@@ -28,11 +28,16 @@ def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
                     tau_max = (Vy * Q) / (Ixx * b)  # Shear stress calculations, [MPa]
                     sigma_max = Fx / (np.pi * (Ro ** 2 - Ri ** 2))  # Tensile stress calculations, [MPa]
                     MS_tau = np.absolute(tau_y / tau_max) - 1
+##                    print(type(MS_tau))
                     MS_sigma = np.absolute(sigma_y / sigma_max) - 1
+##                    print(type(MS_sigma))
 
                     if MS_tau >= 1 and MS_tau <= 8 and MS_sigma >= 1 and MS_sigma <= 8:
                         MS = min(MS_tau, MS_sigma)
+                        print(type(MS))
                         m = (L / 1000) * np.pi * ((Ro / 1000) ** 2 - (Ri / 1000) ** 2) * rho * n
+                        print(type(m))
+                        print(m)
                         R_t.append([Ro, t, n, theta_deg, round(MS, 2), round(m, 2)])
 
                         Mass.append(m)
@@ -60,9 +65,9 @@ def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
         NewMass.pop(index_minRadius)
         NewR_t.pop(index_minRadius)
 
-    print("R_outer [mm], t [mm], n [-], theta [deg], M.S. [-], mass [kg]")
-    print(RadiiR_t)
-
+##    print("R_outer [mm], t [mm], n [-], theta [deg], M.S. [-], mass [kg]")
+##    print(RadiiR_t)
+    return [RadiiR_t[0][0], RadiiR_t[0][5]]
 
 
 M = 877.53+39284 # kg 40163.22
@@ -74,7 +79,8 @@ Rs = 2500
 Rt = 1930
 # n = 20
 
-x = MemberDes(rho, sigma_y, tau_y, M, Rs, Rt)
+##x = MemberDes(rho, sigma_y, tau_y, M, Rs, Rt)
+##print(x)
 
 
 

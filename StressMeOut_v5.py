@@ -2,21 +2,19 @@ import numpy as np
 from ShellBuckling import shellBuckle
 from ColumnBuckling import ColBuckle
 
-''' R changes '''
-R = 1.50                   # Radius in metres of the tank [m]
-
-L = 5.71                   # Total length of the tank in metres [m]
+R = 1.93                   # Radius in metres of the tank [m]
+L = 4.13                   # Total length of the tank in metres [m]
 E = 78 * 10**9                   # Young's Modulus of the material [Pa]
 v = 0.33                   # Material's poisson ratio []
-t1 =  6.43 * 10**(-3)                 # thickness of the straight part of the tank [m]
+t1 =  8.27 * 10**(-3)                 # thickness of the straight part of the tank [m]
 p =  21 * 10**5                  # internal pressure of the tank [N/m] or [Pa]
-t2 =  3.22 * 10**(-3)                 # Thickness of the spherical caps [m]
+t2 =  4.14 * 10**(-3)                 # Thickness of the spherical caps [m]
 rho = 2700                 # Density of material used for tank [kg/m^3]
 sigma_y = 490e6           #yield stress of material [Pa]
 col_ind = "N"         # Checks if a variable has changed in previous loop
 shell_ind = "N"       
-mAttatch = 281.1         #Mass of the attatchments
-D0 = 0.104
+mAttatch = 281.1 +267.98        #Mass of the attatchments
+D0 = 0.108
 # Initial
 ##mAttatch = 0
 ##D0 = 0.4/2.4
@@ -28,8 +26,8 @@ D0 = 0.104
 ##rho = 4430                 # Density of material used for tank [kg/m^3]
 ##sigma_y = 827e6           #yield stress of material [Pa]
 
-sigma_cr_shell = shellBuckle(p, R, L, E, t1, v)
-sigma_cr_col = ColBuckle(R, L, E)
+sigma_cr_shell = shellBuckle(p, R, L, E, t1, v) #MPa
+sigma_cr_col = ColBuckle(R, L, E)               #MPa
 
 L_min = 2.4 * D0
 
