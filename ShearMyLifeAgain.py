@@ -6,7 +6,7 @@ def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
     R_t = [] #mm
     Mass = [] #mm
     for n in [12, 16, 20]:
-        for theta_deg in range(30, 61):  # so no 60?
+        for theta_deg in range(30, 61):
             print(n, theta_deg)
 
         for theta_deg in range(30, 61):
@@ -14,10 +14,6 @@ def MemberDes(rho, sigma_y, tau_y, M, Rs, Rt):
             # Calculating member properties
             theta = (theta_deg / 360) * 2 * np.pi  # Angle wrt S/C horizontal, [rad]
             L = (Rs - Rt) / np.cos(theta)  # Length member, [unit of Rs and Rt]
-
-            # Calculating forces in member
-            Vy = (M * 6* g * np.cos(theta) + M*2*g*np.sin(theta))/ n  # Shear Force, [N]
-            Fx = (M * 6 * g * np.cos(theta) + M * 2 * g * np.sin(theta))/ n  # Tensile Force, [N]
 
             # Desirable outcome combinations
 
